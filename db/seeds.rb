@@ -44,7 +44,7 @@ listing = Listing.create([
     # how to do this with the name instead
     category_id: 1,
     # this is just a guess
-    subcategory_id: 4,
+    subcategory_id: 12,
     # this is supposed to be each
     uom_id: 1,
     user_id: 1,
