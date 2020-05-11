@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     surname: "Bindi",
     password: "111111",
     email: "e@gmail.com",
-    bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs"
+    # bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs"
   )}
 
   it 'is valid with valid attributes' do

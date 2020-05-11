@@ -18,5 +18,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 
   # validates bio is not too long
-  validates_length_of :bio, within: 1..450, too_long: "Please ensure biography is less than 250 characters long" 
+  validates :bio, length: { maximum: 450, too_long: "Please ensure biography is less than 250 characters long" }
 end
