@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Listing, type: :model do
   let(:category) { Category.new }
   let(:uom) { Uom.new }
+  let(:user) { User.new } 
 
   subject { described_class.new(
     title: 'Cauliflower',
@@ -10,7 +11,8 @@ RSpec.describe Listing, type: :model do
     qty: 1,
     description: "Monster purple cauliflower, organically grown",
     category: category,
-    uom: uom
+    uom: uom,
+    user: user,
   )}
 
   it 'is valid with valid attributes' do
@@ -31,6 +33,7 @@ RSpec.describe Listing, type: :model do
     subject.price = nil
     expect(subject).to_not be_valid
   end
+  PVp5q77ehvVCSE_
 
   it 'is not valid without a quantity' do
     subject.qty = nil
