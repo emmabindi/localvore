@@ -1,16 +1,24 @@
-# categories = ["Vegetables", "Fruit", "Herbs"]
+uom = ["Each", "Bunch", "100g", "250g", "500g", "1kg"]
 
-# categories.each do | cat |
-#   Categories.create(name: cat)
-# end
+uom.each do | unit |
+  Uom.create(unit: unit)
+end 
 
-# # ---
+# -- CATEGORIES
 
-# veg = ["Artichoke", "Asparagus", "Asian Greens", "Avocado", "Beans", "Beetroot", "Brocolli", "Brussel Sprouts", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chilli", "Corn", "Celeriac", "Celery", "Cucumber", "Eggplant", "Fennel", "Garlic", "Ginger", "Kale", "Kholrabi", "Leek", "Lettuce", "Mushrooms", "Okra", "Olive", "Onion", "Parsnip", "Peas", "Potatos", "Pumpkin", "Radish", "Rhubarb", "Silverbeet", "Squash", "Spinach", "Swedes", "Tomato", "Turnip", "Tubers other", "Zucchini", "Other"]
+category = ["Vegetables", "Fruit", "Herbs"]
 
-# veg.each do | veg |
-#   Vegetables.create(name: veg)
-# end
+category.each do | cat |
+  Category.create(name: cat)
+end
+
+# # --- VEGETABLES 
+
+subcategory = ["Artichoke", "Asparagus", "Asian Greens", "Avocado", "Beans", "Beetroot", "Brocolli", "Brussel Sprouts", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chilli", "Corn", "Celeriac", "Celery", "Cucumber", "Eggplant", "Fennel", "Garlic", "Ginger", "Kale", "Kholrabi", "Leek", "Lettuce", "Mushrooms", "Okra", "Olive", "Onion", "Parsnip", "Peas", "Potatos", "Pumpkin", "Radish", "Rhubarb", "Silverbeet", "Squash", "Spinach", "Swedes", "Tomato", "Turnip", "Tubers other", "Zucchini", "Other"]
+
+subcategory.each do | type |
+  Subcategory.create(name: type)
+end
 
 # # ---
 
@@ -54,10 +62,6 @@
 #   Yuzu
 # ]
 
-# fruit.each do | fruit |
-#   Fruit.create(name:fruit)
-# end
-
 # # ---
 
 # herb = %w[anise
@@ -92,9 +96,3 @@
 
 
 # # --- 
-
-# uom = ["Each", "Bunch", "100g", "250g", "500g", "1kg"]
-
-# uom.each do | unit |
-#   Uom.create(unit:unit)
-# end 
