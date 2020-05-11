@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_100946) do
+ActiveRecord::Schema.define(version: 2020_05_11_210315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_05_11_100946) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "uoms", force: :cascade do |t|
@@ -71,4 +73,5 @@ ActiveRecord::Schema.define(version: 2020_05_11_100946) do
   add_foreign_key "listings", "subcategories"
   add_foreign_key "listings", "uoms"
   add_foreign_key "listings", "users"
+  add_foreign_key "subcategories", "categories"
 end
