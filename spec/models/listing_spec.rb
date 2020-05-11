@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
   let(:category) { Category.new }
+  let(:subcategory) { Subcategory.new }
   let(:uom) { Uom.new }
   let(:user) { User.new } 
 
@@ -11,6 +12,7 @@ RSpec.describe Listing, type: :model do
     qty: 1,
     description: "Monster purple cauliflower, organically grown",
     category: category,
+    subcategory: subcategory,
     uom: uom,
     user: user,
   )}
@@ -44,8 +46,33 @@ RSpec.describe Listing, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it 'is not valid without a sub-category selected' do
+    subject.subcategory = nil 
+    expect(subject).to_not be_valid
+  end
+
   it 'is not valid without a uom selected' do
     subject.uom = nil 
     expect(subject).to_not be_valid
+  end
+
+  it 'belongs to a User' do 
+    relation = Listing.reflect_on_association(:user)
+    expect(relation.macro).to eql(:belongs_to)
+  end
+
+  it 'belongs to a Category' do 
+    relation = Listing.reflect_on_association(:category)
+    expect(relation.macro).to eql(:belongs_to)
+  end
+
+  it 'belongs to a Subcategory' do 
+    relation = Listing.reflect_on_association(:subcategory)
+    expect(relation.macro).to eql(:belongs_to)
+  end
+
+  it 'belongs to a UOM' do 
+    relation = Listing.reflect_on_association(:uom)
+    expect(relation.macro).to eql(:belongs_to)
   end
 end
