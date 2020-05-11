@@ -6,5 +6,5 @@ class Listing < ApplicationRecord
   
   belongs_to :category, dependent: :destroy
 
-  # enum measurement_types: ['each', 'bunch', '500g', '1kg', 'other']
+  belongs_to :uom, ddependent: :destroy
 end
