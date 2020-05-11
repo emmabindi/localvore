@@ -6,5 +6,5 @@ class Listing < ApplicationRecord
   
   belongs_to :category, dependent: :destroy
 
-  belongs_to :uom, ddependent: :destroy
+  belongs_to :uom, dependent: :destroy
 end
