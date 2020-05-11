@@ -1,5 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { described_class.new(
+    title: 'Cauliflower',
+    price: 2.00,
+    qty: 1,
+    description: "Monster purple cauliflower, organically grown"
+  )}
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  it 'is not valid without a title' do 
+    subject.title = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a price even if that price is free' do
+    subject.price = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a quantity' do
+    subject.qty = nil
+    expect(subject).to_not be_valid
+  end
 end
