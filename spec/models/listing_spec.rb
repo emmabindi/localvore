@@ -33,7 +33,6 @@ RSpec.describe Listing, type: :model do
     subject.price = nil
     expect(subject).to_not be_valid
   end
-  PVp5q77ehvVCSE_
 
   it 'is not valid without a quantity' do
     subject.qty = nil

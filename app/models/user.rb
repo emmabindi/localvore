@@ -5,4 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings
+
+  #validate names have chars and max length 
+  validates :first_name, presence: true
+  validates_length_of :first_name, within: 1..30, too_long: "Please ensure first name is less than 30 characters long"
+
+  validates :surname, presence: true
+  validates_length_of :surname, within: 1..30, too_long: "Please ensure surname is less than 30 characters long"
+
+  #validate email is present and unique 
+
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+
+  # validates bio is not too long
+  validates_length_of :bio, within: 1..450, too_long: "Please ensure biography is less than 250 characters long" 
 end
