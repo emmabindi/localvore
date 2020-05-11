@@ -6,7 +6,7 @@
 
 # # ---
 
-# veg = ["Artichoke", "Asparagus", "Asian Greens", "Avocado", "Beans", "Beetroot", "Brocolli", "Brussel Sprouts", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chilli", "Corn", "Celeriac", "Celery", "Cucumber", "Eggplant", "Fennel", "Garlic", "Ginger", "Kale", "Kholrabi", "Leek", "Lettuce", "Mushrooms", "Okra", "Onion", "Parsnip", "Peas", "Potatos", "Pumpkin", "Radish", "Rhubarb", "Silverbeet", "Squash", "Spinach", "Swedes", "Tomato", "Turnip", "Tubers other", "Zucchini", "Other"]
+# veg = ["Artichoke", "Asparagus", "Asian Greens", "Avocado", "Beans", "Beetroot", "Brocolli", "Brussel Sprouts", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chilli", "Corn", "Celeriac", "Celery", "Cucumber", "Eggplant", "Fennel", "Garlic", "Ginger", "Kale", "Kholrabi", "Leek", "Lettuce", "Mushrooms", "Okra", "Olive", "Onion", "Parsnip", "Peas", "Potatos", "Pumpkin", "Radish", "Rhubarb", "Silverbeet", "Squash", "Spinach", "Swedes", "Tomato", "Turnip", "Tubers other", "Zucchini", "Other"]
 
 # veg.each do | veg |
 #   Vegetables.create(name: veg)
@@ -14,7 +14,45 @@
 
 # # ---
 
-# fruit = ["Apples & Pears", "Citrus", "Stone Fruit", "Tropical", "Berries", "Melons", "Other"]
+# fruit = %w[
+#   Apple
+#   Apricot
+#   Banana
+#   Berries
+#   Cherry
+#   Coconut
+#   Date
+#   Dragonfruit
+#   Durian
+#   Feijoa
+#   Fig
+#   Grapes
+#   Grapefruit
+#   Guava
+#   Jackfruit
+#   Kiwi
+#   Kumquat
+#   Lemon
+#   Lime 
+#   Lychee
+#   Mandarin
+#   Mango
+#   Melons
+#   Nectarine
+#   Orange
+#   Papaya
+#   Passionfruit
+#   Peach
+#   Pear
+#   Persimmon
+#   Pineapple
+#   Plum
+#   Pomegranate
+#   Pomelo
+#   Quince 
+#   Tamarillo
+#   Yuzu
+# ]
 
 # fruit.each do | fruit |
 #   Fruit.create(name:fruit)
