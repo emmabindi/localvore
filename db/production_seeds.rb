@@ -1,29 +1,39 @@
-# categories = ["Vegetables", "Fruit", "Herbs"]
+categories = ["Vegetables", "Fruit", "Herbs"]
 
-# categories.each do | cat |
-#   Categories.create(category_type: cat)
-# end
+categories.each do | cat |
+  Categories.create(category_type: cat)
+end
 
-# veg = ["Artichoke", "Asparagus", "Bak Choy", "Beans", "Beetroot", "Brocolli", "Brussel Sprouts", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chilli", "Corn", "Celery", "Cucumber", "Eggplant", "Fennel", "Garlic", "Ginger", "Kale", "Kholrabi", "Leek", "Lettuce", "Mushrooms", "Okra", "Onion", "Parsnip", "Peas", "Potatos", "Pumpkin", "Radish", "Rhubarb", "Squash", "Spinach", "Tomato", "Other"]
+veg = ["Artichoke", "Asparagus", "Asian Greens", "Avocado", "Beans", "Beetroot", "Brocolli", "Brussel Sprouts", "Cabbage", "Capsicum", "Carrot", "Cauliflower", "Chilli", "Corn", "Celeriac", "Celery", "Cucumber", "Eggplant", "Fennel", "Garlic", "Ginger", "Kale", "Kholrabi", "Leek", "Lettuce", "Mushrooms", "Okra", "Onion", "Parsnip", "Peas", "Potatos", "Pumpkin", "Radish", "Rhubarb", "Silverbeet", "Squash", "Spinach", "Swedes", "Tomato", "Turnip", "Tubers other", "Zucchini", "Other"]
 
-# veg.each do | veg |
-#   Categories.create(veg_type: veg)
-# end
+veg.each do | veg |
+  Categories.create(veg_type: veg)
+end
+
+herb = %w[anise
+basil
+caraway
+chives
+coriander
+chamomile
+curry
+daikon
+dill
+fennel
+horseradish
+kaffir-lime
+lavender
+lemongrass
+marjoram
+mint
+mustard
+oregano
+parsley
+rosemary
+sage
+sorrel
+tarragon
+tumeric
+thyme].capitalize
 
 
-# anise
-# basil
-# caraway
-# coriander
-# chamomile
-# daikon
-# dill
-# fennel
-# lavender
-# lemongrass
-# marjoram
-# oregano
-# parsley
-# rosemary
-# sage
-# thyme

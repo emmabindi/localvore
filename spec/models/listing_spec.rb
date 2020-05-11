@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
+  let(:category) { Category.new }
+
   subject { described_class.new(
     title: 'Cauliflower',
     price: 2.00,
     qty: 1,
-    description: "Monster purple cauliflower, organically grown"
+    description: "Monster purple cauliflower, organically grown",
+    category: category
   )}
 
   it 'is valid with valid attributes' do
@@ -29,6 +32,11 @@ RSpec.describe Listing, type: :model do
 
   it 'is not valid without a quantity' do
     subject.qty = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a category selected' do
+    subject.category = nil 
     expect(subject).to_not be_valid
   end
 end
