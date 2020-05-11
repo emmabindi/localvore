@@ -17,6 +17,11 @@ RSpec.describe Listing, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it 'is not valid with a title longer than 30 characters' do
+    subject.title = 'This is a title that is way too long and wont fit in our app'
+    expect(subject).to_not be_valid
+  end
+
   it 'is not valid without a price even if that price is free' do
     subject.price = nil
     expect(subject).to_not be_valid
