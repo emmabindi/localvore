@@ -8,4 +8,5 @@
 <p><strong>Type: </strong><%= @listing.subcategory.name %></p>
 <p><strong>Description: </strong><%= @listing.description %></p>
 <p><strong>Grower: </strong><%= @listing.user.first_name %></p>
+
 <%= image_tag @listing.photo if @listing.photo.attached? %>
