@@ -29,27 +29,28 @@ puts "Adding categories, subcategories and units of measurement.."
 require_relative "production_seeds"
 puts "Added categories, subcategories and units of measurement 👏🏽"
 
-
-# create listings
-
 puts "Adding Produce Listings.."
 
 listing = Listing.create([
   {
     title: "Cauliflower",
-    # photo: "TBA"
     price: 2.00,
     qty: 1,
     description: "Monster purple cauliflower, organically grown",
-    # how to do this with the name instead
     category_id: 1,
-    # this is just a guess
     subcategory_id: 12,
-    # this is supposed to be each
     uom_id: 1,
     user_id: 1,
   }
 ])
+
+Listing.all.each do | listing |
+  listing.photo.attach(
+    io: File.open("app/assets/images/cauliflower.jpg"),
+    filename: "cauliflower.jpg",
+    content_type: "image/jpg"
+  )
+end
 
 puts "Added #{listing.count} listings"
 puts "--------------"
