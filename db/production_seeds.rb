@@ -76,31 +76,31 @@ puts "Fruit added"
 
 # # --- HERBS
 
-herb_subcategory = %w[anise
-basil
-caraway
-chives
-coriander
-chamomile
-curry
-daikon
-dill
-fennel
-horseradish
-kaffir-lime
-lavender
-lemongrass
-marjoram
-mint
-mustard
-oregano
-parsley
-rosemary
-sage
-sorrel
-tarragon
-tumeric
-thyme]
+herb_subcategory = %w[Anise
+Basil
+Caraway
+Chives
+Coriander
+Chamomile
+Curry
+Daikon
+Dill
+Fennel
+Horseradish
+Kaffir-lime
+Lavender
+Lemongrass
+Marjoram
+Mint
+Mustard
+Oregano
+Parsley
+Rosemary
+Sage
+Sorrel
+Tarragon
+Tumeric
+Thyme]
 
 herb_subcategory.each do | herb |
   Subcategory.create(name:herb, category_id: 3)
