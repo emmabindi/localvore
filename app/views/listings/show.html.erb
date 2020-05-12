@@ -10,4 +10,11 @@
 
 <%= image_tag @listing.photo if @listing.photo.attached? %>
 
+<div class="show-edit-delete">
+  <% if can? :edit, @listing %>
+    <%= link_to "Edit", edit_listing_path(@listing.id) %>
+    <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
+    <% end %>
+</div>
+
 <%= link_to "Back", :back %>

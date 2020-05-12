@@ -13,6 +13,5 @@ class Listing < ApplicationRecord
   belongs_to :uom, dependent: :destroy
 
   has_one_attached :photo
-
-  paginates_per 15
+  
 end
