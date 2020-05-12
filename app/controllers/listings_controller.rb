@@ -27,11 +27,14 @@ class ListingsController < ApplicationController
   end
 
   def update
-    if @listing.update(listing_params)
-    redirect_to listings_path(@listing.id)
-    else
-      render :edit
-    end
+    # if @listing.update(listing_params)
+    # redirect_to listings_path(@listing.id)
+    # else
+    #   render :edit
+    # end
+    @listing.update(listing_params)
+
+    redirect_to @listing
   end
 
   def destroy
