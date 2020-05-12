@@ -14,15 +14,25 @@ user = User.create([
     surname: "Bindi",
     email: "e@gmail.com",
     password: "111111", 
-    bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs"
+    bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs",
   },
   {
   first_name: "Laura",
   surname: "Bindi",
   email: "l@gmail.com",
   password: "111111", 
+  bio: "Some information goes here all about her"
   }
 ])
+
+User.all.each do | user |
+  user.profile_photo.attach(
+    io: File.open("app/assets/images/sketchman.jpeg"),
+    filename: "sketchman.jpeg",
+    content_type: "image/jpeg"
+  )
+end
+
 puts "Added #{user.count} users"
 
 puts "Adding categories, subcategories and units of measurement.."
