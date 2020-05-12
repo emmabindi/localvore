@@ -3,3 +3,5 @@
 <% @listings.each do |listing| %>
   <p><%= link_to listing.title, listing_path(listing) %></p>
 <% end %>
+
+<%= link_to "Back", :back %>
