@@ -14,19 +14,24 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(listing_params)
-    @listing.save
-
-    redirect_to @listing
+    @listing = current_user.listings.create(listing_params)
+    if @listing.errors.any?
+      render :new
+    else
+      flash[:success] = "You successfully added a new listing 🌱"
+      redirect_to @listing
+    end
   end
 
   def edit
   end
 
   def update
-    @listing.update(listing_params)
-
-    redirect_to @listing
+    if @listing.update(listing_params)
+    redirect_to listings_path(@listing.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -38,7 +43,7 @@ class ListingsController < ApplicationController
   private 
 
   def listing_params
-    params.require(:listing).permit(:title, :photo, :price, :qty, :description, :uom_id, :category_id)
+    params.require(:listing).permit(:title, :photo, :price, :qty, :description, :uom_id, :category_id, :subcategory_id)
   end
 
   def find_listing

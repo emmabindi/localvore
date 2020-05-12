@@ -1,1 +1,17 @@
+
 <h1>Show Listing</h1>
+
+<h5> <%= @listing.title %></h5>
+<p><strong>Price: </strong><%= @listing.price %> / <%= @listing.uom.unit %></p>
+<p><strong>Qty: </strong><%= @listing.qty %></p>
+<p><strong>Category: </strong><%= @listing.category.name %></p>
+<p><strong>Type: </strong><%= @listing.subcategory.name %></p>
+<p><strong>Description: </strong><%= @listing.description %></p>
+<p><strong>Grower: </strong><%= @listing.user.first_name %></p>
+
+<%# <% if @listing.photo.attached? %> %> %>
+  <%# <%= image_tag @listing.photo %> %>
+  <%# <% else %> %>
+<%# <% end %> %>
+
+<%= image_tag @listing.photo if @listing.photo.attached? %>

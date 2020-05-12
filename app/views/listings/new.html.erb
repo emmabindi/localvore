@@ -1,5 +1,8 @@
 <h1>Add a listing</h1>
 
+
+<%= render "form", listing: @listing %>
+
 <div>
   <%= form.label :photo %> 
   <%= form.file_field :photo, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>

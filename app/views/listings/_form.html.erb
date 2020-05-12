@@ -1,0 +1,51 @@
+<%= form_with model: listing, local: true do |f| %>
+
+<form>
+  <div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </div>
+
+  <%= f.label :photo %> 
+  <%= f.file_field :photo, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
+
+  <%# how do I set this to only take numbers?? %>
+  <div class="form-row">
+    <div class="col">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+      </div>
+
+      <div class="col">
+      <%# <%= f.label :uom %>
+      <%= f.collection_select(:uom_id, Uom.all, :id, :unit) %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+  <%= f.label :qty %>
+  <%= f.text_field :qty %>
+  </div>
+
+  <div>
+  <%= f.label :categories %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+  </div>
+
+  <%# HOW DO I FILTER WHAT SHOWS UP BASED ON THE ABOVE %>
+  <div>
+  <%= f.label :subcategories %>
+  <%= f.collection_select(:subcategory_id, Subcategory.all, :id, :name) %>
+  </div>
+
+  <div>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  </div>
+
+
+  <%= f.submit %>
+
+  <% end %>
+</form>
