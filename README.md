@@ -134,3 +134,5 @@ Third party
 rspec
 bootstrap 
 devise
+cancancan
+city-state
