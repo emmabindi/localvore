@@ -21,4 +21,6 @@ class User < ApplicationRecord
   validates :bio, length: { maximum: 450, too_long: "Please ensure biography is less than 250 characters long" }
 
   has_one_attached :profile_photo
+
+  has_one :location, dependent: :destroy
 end

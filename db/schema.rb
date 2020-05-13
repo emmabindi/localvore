@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_021806) do
+ActiveRecord::Schema.define(version: 2020_05_13_044144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_021806) do
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
@@ -107,5 +109,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_021806) do
   add_foreign_key "listings", "subcategories"
   add_foreign_key "listings", "uoms"
   add_foreign_key "listings", "users"
+  add_foreign_key "locations", "users"
   add_foreign_key "subcategories", "categories"
 end

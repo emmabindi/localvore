@@ -21,9 +21,33 @@ user = User.create([
   surname: "Bindi",
   email: "l@gmail.com",
   password: "111111", 
-  bio: "Some information goes here all about her"
+  bio: "Some information goes here all about her",
   }
 ])
+
+puts "--------------"
+puts "Adding addresses.."
+
+location = Location.create([
+  {
+    street_address: "123 High St",
+    suburb: "South Yarra",
+    city: "Melbourne",
+    state: "Victoria",
+    country: "Australia",
+    user_id: 1
+  },
+  {
+    street_address: "279 Pretty St",
+    suburb: "Toorak",
+    city: "Melbourne",
+    state: "Victoria",
+    country: "Australia",
+    user_id: 2
+  }
+])
+
+puts "--------------"
 
 User.all.each do | user |
   user.profile_photo.attach(
@@ -34,6 +58,8 @@ User.all.each do | user |
 end
 
 puts "Added #{user.count} users"
+
+puts "--------------"
 
 puts "Adding categories, subcategories and units of measurement.."
 require_relative "production_seeds"
@@ -63,6 +89,8 @@ listing = Listing.create([
     user_id: 2,
   }
 ])
+
+puts "--------------"
 
 Listing.all.each do | listing |
   listing.photo.attach(
