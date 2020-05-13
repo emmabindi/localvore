@@ -10,17 +10,14 @@
   <%= f.file_field :photo, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
 
   <%# how do I set this to only take numbers?? %>
-  <div class="form-row">
-    <div class="col">
+  <div>
       <%= f.label :price %>
       <%= f.text_field :price %>
       </div>
 
-      <div class="col">
-      <%# <%= f.label :uom %>
-      <%= f.collection_select(:uom_id, Uom.all, :id, :unit) %>
+      <div>
+      <p>Unit of Measure: <%= f.collection_select(:uom_id, Uom.all, :id, :unit) %></p>
       </div>
-    </div>
   </div>
 
   <div>
