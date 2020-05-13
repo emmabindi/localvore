@@ -20,13 +20,15 @@
       <div class="card-body">
         <h5 class="card-title"> <%= listing.title %> </h5>
         <h6 class="card-subtitle mb-2 text-muted"> $<%= listing.price %> / <%= listing.uom.unit %></h6>
-        <h6 class="card-subtitle mb-2 text-muted"> Qty Avail: <%= listing.qty %> </h6>
+        <!-- <h6 class="card-subtitle mb-2 text-muted"> Qty Avail: <%= listing.qty %> </h6> -->
+        
+        <p class="card-text"><small class="text-muted"> Category: <%= listing.category.name %> (<%= listing.subcategory.name %>)</small></p>
 
-        <p class="card text-justify">Description: <%= listing.description %> </p>
-        <p class="card text-justify">Grower: <%= listing.user.first_name %> </p>
+        <p class="card text">Description: <%= listing.description %> </p>
+        <p class="text">📍<%= listing.user.location.suburb %> </p>
+        <p class="text">Grown by: <%= listing.user.first_name %>  </p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
 
-        <p class="card-text"><small class="text-muted"> Category: <%= listing.category.name %> (<%= listing.subcategory.name %>)</small></p>
       </div>
     </div>
   </div>
