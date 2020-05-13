@@ -23,4 +23,6 @@ class User < ApplicationRecord
   has_one_attached :profile_photo
 
   has_one :location, dependent: :destroy
+
+  has_one :cart
 end

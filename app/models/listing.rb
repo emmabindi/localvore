@@ -13,5 +13,8 @@ class Listing < ApplicationRecord
   belongs_to :uom, dependent: :destroy
 
   has_one_attached :photo
+
+  has_many :cart_listings 
+  has_many :carts, through: :cart_listings
   
 end
