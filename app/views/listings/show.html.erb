@@ -8,7 +8,7 @@
 <p><strong>Description: </strong><%= @listing.description %></p>
 <p><strong>Grower: </strong><%= @listing.user.first_name %></p>
 
-<%= image_tag @listing.photo if @listing.photo.attached? %>
+<%= image_tag((@listing.photo), :class => "img-thumbnail") if @listing.photo.attached? %>
 
 <div class="show-edit-delete">
   <% if can? :edit, @listing %>
