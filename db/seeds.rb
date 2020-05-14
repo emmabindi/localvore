@@ -211,6 +211,59 @@ listing1 = Listing.create(
 
     # ---   
 
+  listing8 = Listing.create(
+    title: "Lemons",
+    price: 1,
+    qty: 1,
+    description: "Small and juicy",
+    category_id: 2,
+    subcategory_id: 62,
+    uom_id: 6,
+    user_id: 2)
+
+  listing8.photo.attach(
+    io: File.open("app/assets/images/lemons.jpg"),
+    filename: "lemons.jpg",
+    content_type: "image/jpg")
+
+    # ---   
+
+  listing9 = Listing.create(
+    title: "Silverbeet",
+    price: 3,
+    qty: 2,
+    description: "Rainbow beet, great in salads",
+    category_id: 1,
+    subcategory_id: 36,
+    uom_id: 6,
+    user_id: 4)
+
+  listing9.photo.attach(
+    io: File.open("app/assets/images/silverbeet-rainbow.jpg"),
+    filename: "silverbeet-rainbow.jpg",
+    content_type: "image/jpg")
+
+    # ---  
+
+  listing10 = Listing.create(
+    title: "Strawberries",
+    price: 2,
+    qty: 10,
+    description: "Super sweet, variety of sizes",
+    category_id: 2,
+    subcategory_id: 48,
+    uom_id: 4,
+    user_id: 3)
+
+  listing10.photo.attach(
+    io: File.open("app/assets/images/strawberry-basket.jpg"),
+    filename: "strawberry-basket.jpg",
+    content_type: "image/jpg")
+
+    # ---  
+
+puts "--------------"
+puts "Added #{Listing.all.count} listings"
 puts "--------------"
 
 # OLD METHOD OF ADDING SAME PHOTO TO ALL LISTINGS:
@@ -222,5 +275,3 @@ puts "--------------"
 #   )
 # end
 
-puts "Added #{Listing.all.count} listings"
-puts "--------------"
