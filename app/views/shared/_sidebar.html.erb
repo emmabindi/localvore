@@ -1,0 +1,41 @@
+<div class="sidebar">
+
+<p>Sort By: <%= sort_link(@q, :title, default_order: :asc) %></p>
+<p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
+
+--- 
+<p>Search all produce:</p>
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :title_or_description_cont, placeholder: "Search by keyword" %>
+  <%= f.submit %>
+  <% end %>
+
+<br><br>
+
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :user_location_suburb_cont, placeholder: "Search by Suburb" %>
+  <%= f.submit %>
+<% end %>
+
+<br><br>
+<%= search_form_for @q do |f| %>
+  <%= f.label :user_location_suburb_eq, "Search by Suburb: " %>
+  <%= f.select :user_location_suburb_eq, options_for_select(Location.search_select_options) %>
+  <%= f.submit %>
+<% end %>
+
+<br>
+<p>View Produce by Category: 
+  <%= search_form_for @q do |f| %>
+  <%= f.select :category_name_cont, options_for_select(Category.search_select_options) %>
+    <%= f.submit %>
+  <% end %>
+  </p>
+
+<p>View Produce by Type: 
+  <%= search_form_for @q do |f| %>
+    <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
+    <%= f.submit %>
+  <% end %>
+</p>
+</div>

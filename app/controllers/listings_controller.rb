@@ -4,7 +4,8 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @listings = Listing.all
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result.includes(:category, :subcategory)
   end
 
   def show
