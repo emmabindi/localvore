@@ -134,3 +134,19 @@ Third party
 rspec
 bootstrap 
 devise
+cancancan 
+---
+
+
+Learnings / Challenges 
+- extensive use of git branching to develop features before merging into master file 
+- nested attributes 
+- customisation of devise and sanitizer permissions 
+- rspec / TDD for models User and Listing
+- seeding: attaching individual images to listings 
+
+
+Points 
+- use of partials to ensure code is dry: image-logic partial to handle the conditional treatment of whether photo is uploaded and if not, to display a default sketch image - affects index and show views 
+- use of form partial 
+- use of nav partial 
