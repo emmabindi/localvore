@@ -29,7 +29,14 @@ user = User.create([
     email: "b@gmail.com",
     password: "111111", 
     bio: "Empty nester with lots of backyard space for growing veggies and herbs. Lover of travel and adventure.",
-    }
+    },
+  {
+    first_name: "Josh",
+    surname: "Bollen",
+    email: "j@gmail.com",
+    password: "111111", 
+    bio: "Spend my free time catching waves or getting dirt under my fingernails. I work FIFO so need to share my garden bounty as I'm away intermittently.",
+    },
 ])
 
 puts "--------------"
@@ -59,6 +66,14 @@ location = Location.create([
     state: "Victoria",
     country: "Australia",
     user_id: 3, 
+  },
+  {
+    street_address: "2 Ethel St",
+    suburb: "Albert Park",
+    city: "Melbourne",
+    state: "Victoria",
+    country: "Australia",
+    user_id: 4, 
   }
 ])
 
@@ -111,6 +126,36 @@ listing = Listing.create([
     category_id: 2,
     subcategory_id: 55,
     uom_id: 5,
+    user_id: 3,
+  },
+  {
+    title: "Heirloom Tomatos",
+    price: 5.00,
+    qty: 1,
+    description: "Stunning - rainbow coloured heirlooms, firm texture",
+    category_id: 1,
+    subcategory_id: 40,
+    uom_id: 6,
+    user_id: 1,
+  },
+  {
+    title: "Sage",
+    price: 1,
+    qty: 1,
+    description: "Aromatic and beautiful large leaves, organically grown",
+    category_id: 3,
+    subcategory_id: 102,
+    uom_id: 2,
+    user_id: 2,
+  },
+  {
+    title: "Basil",
+    price: 1,
+    qty: 1,
+    description: "Sweet basil ready to make your margherita pizza pop",
+    category_id: 3,
+    subcategory_id: 83,
+    uom_id: 2,
     user_id: 3,
   },
 ])
