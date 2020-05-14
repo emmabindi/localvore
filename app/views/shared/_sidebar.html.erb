@@ -1,32 +1,19 @@
 <div class="sidebar">
 
-<%# these sorting works: %>
 <p>Sort By: <%= sort_link(@q, :title, default_order: :asc) %></p>
 <p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
 
-<p>--------</p>
-
+--- 
 <p>Search all produce:</p>
 <%= search_form_for @q do |f| %>
-
   <%= f.search_field :title_or_description_cont, placeholder: "Search by keyword" %>
   <%= f.submit %>
-<% end %>
 
-<br>
-THE SUBURB SEARCH IS NOT WORKING:
-
-<%# THIS IS NOT WORKING: %>
-
-<%= search_form_for @q do |f| %>
-  <%= f.fields_for :location do |loc| %>
-    <%= loc.search_field :suburb_cont, placeholder: "Search by suburb"%>
+<br><br>
+  <%= f.label :user_location_suburb_eq, "Search by Suburb: " %>
+  <%= f.select :user_location_suburb_eq, options_for_select(Location.search_select_options) %>
   <%= f.submit %>
 <% end %>
-
-<% end %>
-</div>
-
 
 <br>
 <p>View Produce by Category: 
@@ -38,8 +25,8 @@ THE SUBURB SEARCH IS NOT WORKING:
 
 <p>View Produce by Type: 
   <%= search_form_for @q do |f| %>
-  <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
+    <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
     <%= f.submit %>
   <% end %>
 </p>
-
+</div>
