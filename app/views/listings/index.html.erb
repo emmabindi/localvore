@@ -14,9 +14,12 @@
   <%# The below link to helper allows the photo or listing title to be clicked on which will take you to view that product singurlarly in "show" %>
     <%= link_to listing_path(listing) do %>
 
-      <%# <img src="..." class="card-img" alt="..."> %>
-
-      <%= image_tag((listing.photo), :class => "img-thumbnail") if listing.photo.attached? %>
+  <%# The below if logic will display the uploaded photo with the listing unless no photo was uploaded - then a default sketch of a collection of veggies is displayed instead: %>
+    <% if listing.photo.attached? %>
+      <%= image_tag((listing.photo), :class => "img-thumbnail") if listing.photo.attached?  %>
+    <% else %>
+      <%= image_tag(listing.default_image, class: 'card-img-top img-fluid') %>
+    <% end %>
 
 
     </div>

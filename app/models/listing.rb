@@ -16,5 +16,9 @@ class Listing < ApplicationRecord
 
   has_many :cart_listings 
   has_many :carts, through: :cart_listings
+
+  def default_image
+    photo.attached? ? photo : 'fresh.png'
+  end
   
 end
