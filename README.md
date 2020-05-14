@@ -137,6 +137,7 @@ devise
 cancancan 
 stripe 
 ultrahook api
+ransack 
 ---
 
 

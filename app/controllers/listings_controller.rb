@@ -4,7 +4,10 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @listings = Listing.all
+    # @listings = Listing.all
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result.includes(:category, :subcategory)
+    # I WOULD LIKE TO PUT SUBURB IN HERE OR SEARCH KEYWORD LIKE ORGANIC
   end
 
   def show

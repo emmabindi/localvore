@@ -1,0 +1,22 @@
+<div class="sidebar">
+
+<%# these sorting works: %>
+<p>Sort By: <%= sort_link(@q, :title, default_order: :asc) %></p>
+<p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
+
+<%# BUTTONS LOOK GREAT BUT IT DOESN'T ACTUALLY WORK HAHA %>
+<p>Search all produce:</p>
+
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :title, placeholder: "Search by item name ie. 'lemon'" %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<br>
+<p>View Produce by Type</p>
+  <%= search_form_for @q do |f| %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    <%= f.submit %>
+  <% end %>
+

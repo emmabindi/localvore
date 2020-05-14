@@ -1,10 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_query
 
+  # Error msg for handling when user is not authorised by CanCan to perform the action attempted (redirects and displays msg):
   rescue_from CanCan::AccessDenied do |exception|
     flash[:authorization_error] = "You are not authorized to perform that action"
     redirect_to listings_path
   end 
+
+  def set_query
+    @q = Listing.ransack(params[:q])
+  end
 
   protected
 
