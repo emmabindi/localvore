@@ -8,7 +8,9 @@
 <p><strong>Description: </strong><%= @listing.description %></p>
 <p><strong>Grower: </strong><%= @listing.user.first_name %></p>
 
-<%= image_tag((@listing.photo), :class => "img-thumbnail") if @listing.photo.attached? %>
+<div class="show-image">
+  <%= render "image-logic", listing: @listing %>
+</div>
 
 <div class="show-edit-delete">
 

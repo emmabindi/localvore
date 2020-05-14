@@ -1,0 +1,6 @@
+  <%# The below if logic will display the uploaded photo with the listing unless no photo was uploaded - then a default sketch of a collection of veggies is displayed instead: %>
+    <% if listing.photo.attached? %>
+      <%= image_tag((listing.photo), :class => "img-thumbnail") if listing.photo.attached?  %>
+    <% else %>
+      <%= image_tag(listing.default_image, class: 'card-img-top img-fluid') %>
+    <% end %>
