@@ -4,19 +4,29 @@
 <p>Sort By: <%= sort_link(@q, :title, default_order: :asc) %></p>
 <p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
 
-<%# BUTTONS LOOK GREAT BUT IT DOESN'T ACTUALLY WORK HAHA %>
-<p>Search all produce:</p>
+<p>--------</p>
 
-  <%= search_form_for @q do |f| %>
-    <%= f.search_field :title, placeholder: "Search by item name ie. 'lemon'" %>
-    <%= f.submit %>
-  <% end %>
+<p>Search all produce:</p>
+<%= search_form_for @q do |f| %>
+
+  <%= f.search_field :title_cont, placeholder: "Search by item ie. 'lemon'" %>
+  <%= f.submit %>
+<% end %>
 </div>
 
+<%# NESTED SEARCHING FOR SUBURB - HOW DO I DO THIS  %>
+
 <br>
-<p>View Produce by Type</p>
+<p>View Produce by Category: 
   <%= search_form_for @q do |f| %>
-  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+  <%= f.select :category_name_cont, options_for_select(Category.search_select_options) %>
     <%= f.submit %>
   <% end %>
+  </p>
 
+<p>View Produce by Type: 
+  <%= search_form_for @q do |f| %>
+  <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
+    <%= f.submit %>
+  <% end %>
+</p>
