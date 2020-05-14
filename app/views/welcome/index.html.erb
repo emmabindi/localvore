@@ -1,9 +1,12 @@
-<h1>Welcome#index</h1>
-<br>
+<h1>Welcome</h1>
+
 <p>
 On this page... 
-<br>
-Nav Bar: About Us, Find Produce, Share Produce, Signup/in 
+
+<img src="app/assets/images/Logo-WhiteBG.png" class="img-fluid" alt="LocalVore Logo">
+
+<img src="/assets/images/basil.png" />
+
 <br>
 hero image and banner with links to share or find 
 <br>
@@ -13,7 +16,10 @@ why it's great paragraph
 <br>
 then 
 <br>
-SIGN UP button again
-</p>
 
-<%= link_to "Back", :back %>
+<div class="welcome-signup">
+Would you like to become a member?
+<a class="btn btn-primary" href="/users/sign_up" role="button">Become a LocalVore</a>
+</div>
+
+<%= render "shared/back" %>
