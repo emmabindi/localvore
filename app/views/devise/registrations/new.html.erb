@@ -4,30 +4,48 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :surname %><br />
+    <%= f.label :surname %>
     <%= f.text_field :surname %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  <br>
+
+  <%# ---- %>
+<%# trying to add in address fields upon sign up:  %>
+
+<%= f.fields_for :location, Location.new do |location_form| %>
+  <div class="field">
+  <p><strong>Address:</strong></p>
+    <%= location_form.label :street_address %>
+    <%= location_form.text_field :street_address %>
+    <%= location_form.label :suburb %>
+    <%= location_form.text_field :suburb %><br>
+    <%= location_form.label :city %>
+    <%= location_form.text_field :city %>
+    <%= location_form.label :state %>
+    <%= location_form.text_field :state %>
+    <%= location_form.label :country %>
+    <%= location_form.text_field :country %>
+  </div>
+  <br>
+<% end %>
+
+  <%# ---- %>
 
   <div class="field">
+  <p><strong>Set Password:</strong></p>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <% end %>
+    <%= f.password_field :password, autocomplete: "new-password" %><br>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

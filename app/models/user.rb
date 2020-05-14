@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_one_attached :profile_photo
 
   has_one :location, dependent: :destroy
+  accepts_nested_attributes_for :location
 
   has_one :cart
 end
