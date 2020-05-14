@@ -32,7 +32,9 @@
         <p class="card text">Description: <%= listing.description %> </p>
         <p class="text">📍<%= listing.user.location.suburb %> </p>
         <p class="text">Grown by: <%= listing.user.first_name %>  </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        
+        <%# **** NEED TO SETUP UP LINK TO VIEW ALL GROWERS PRODUCE LISTINGS *****%>
+        <a href="#" class="btn btn-primary">View All <%= listing.user.first_name %>'s Produce</a>
 
       </div>
     </div>
