@@ -24,7 +24,7 @@
       <div class="card-body">
         <h5 class="card-title"> <%= listing.title %> </h5>
         <% end %>
-        <h6 class="card-subtitle mb-2 text-muted"> $<%= listing.price %> / <%= listing.uom.unit %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%= number_to_currency(listing.price) %> / <%= listing.uom.unit %></h6>
         <!-- <h6 class="card-subtitle mb-2 text-muted"> Qty Avail: <%= listing.qty %> </h6> -->
         
         <p class="card-text"><small class="text-muted"> Category: <%= listing.category.name %> (<%= listing.subcategory.name %>)</small></p>

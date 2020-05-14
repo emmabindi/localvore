@@ -2,9 +2,14 @@
 
 <ul>
   <% @cart.each do | listing | %>
-    <li><%= listing.title %>  <%= listing.price %></li>
-    <li>---</li>
+    <li><%= listing.title %>  <%= number_to_currency(listing.price) %></li>
   <% end %>
 </ul>
 
-<%# add pay now link to stripe here  %>
+<%# ADD IN A PAYMENT TOTAL %>
+
+<%# MAKE SURE ONLY THE SAME GROWER IS COMBINED TOGETHER %>
+
+<%= link_to "Pay for Cart", "", id: "stripe" %>
+
+<%= javascript_pack_tag "stripe" %>

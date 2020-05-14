@@ -1,7 +1,11 @@
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
 <h1>Show Listing</h1>
 
 <h5> <%= @listing.title %></h5>
-<p><strong>Price: </strong><%= @listing.price %> / <%= @listing.uom.unit %></p>
+<p><strong>Price: </strong><%= number_to_currency(@listing.price) %> / <%= @listing.uom.unit %></p>
 <p><strong>Qty: </strong><%= @listing.qty %></p>
 <p><strong>Category: </strong><%= @listing.category.name %></p>
 <p><strong>Type: </strong><%= @listing.subcategory.name %></p>

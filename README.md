@@ -135,6 +135,7 @@ rspec
 bootstrap 
 devise
 cancancan 
+stripe 
 ---
 
 
