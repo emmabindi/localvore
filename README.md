@@ -1,32 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 
 --- 
 # Localvore
-(“one who eats only locally-grown foods”) 
+*“one who eats only locally-grown foods”*
 buy, sell and swap locally grown, fresh produce 
 a neighbourly fresh produce marketplace 
 find fresh homegrown produce - within bike riding distance from your home + share your home grown bounty and connect with your community 
@@ -75,15 +50,6 @@ User_conversation - belongs to user, belogns to conversation (JONING TABLE)
 <!-- Order: belongs to user, 
 OrdersListing join table?  -->
 
-
-Category: Vegetables, Fruit, Herbs 
-
-Types: 
-  Vegetables : Carrot, Kale, Tomato, Potato, Other
-  Fruits: Lemons, Limes, Oranges, Pomegranates, Apples, Cherries, Other
-  Herbs: Dill, Parsley, Basil, Microherbs, Coriander, Thyme, Other
-
-Quantity: each, bunch, half kilo, kilo, other
 
 --- 
 # User Stories
@@ -147,6 +113,7 @@ Learnings / Challenges
 - customisation of devise and sanitizer permissions 
 - rspec / TDD for models User and Listing
 - seeding: attaching individual images to listings 
+- using a new gem ransack 
 
 
 Points 
