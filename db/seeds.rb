@@ -17,12 +17,19 @@ user = User.create([
     bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs",
   },
   {
-  first_name: "Laura",
-  surname: "Bindi",
-  email: "l@gmail.com",
-  password: "111111", 
-  bio: "Some information goes here all about her",
-  }
+    first_name: "Laura",
+    surname: "Bindi",
+    email: "l@gmail.com",
+    password: "111111", 
+    bio: "Some information goes here all about her",
+  },
+  {
+    first_name: "Brenda",
+    surname: "Bindi",
+    email: "b@gmail.com",
+    password: "111111", 
+    bio: "Empty nester with lots of backyard space for growing veggies and herbs. Lover of travel and adventure.",
+    }
 ])
 
 puts "--------------"
@@ -43,7 +50,15 @@ location = Location.create([
     city: "Melbourne",
     state: "Victoria",
     country: "Australia",
-    user_id: 2
+    user_id: 2, 
+  },
+  {
+    street_address: "24 Bush Rd",
+    suburb: "Malvern East",
+    city: "Melbourne",
+    state: "Victoria",
+    country: "Australia",
+    user_id: 3, 
   }
 ])
 
@@ -87,7 +102,17 @@ listing = Listing.create([
     subcategory_id: 1,
     uom_id: 4,
     user_id: 2,
-  }
+  },
+  {
+    title: "Figs",
+    price: 5,
+    qty: 1,
+    description: "Perfectly ripe",
+    category_id: 2,
+    subcategory_id: 55,
+    uom_id: 5,
+    user_id: 3,
+  },
 ])
 
 puts "--------------"
