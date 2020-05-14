@@ -97,8 +97,7 @@ puts "Added categories, subcategories and units of measurement 👏🏽"
 
 puts "Adding Produce Listings.."
 
-listing = Listing.create([
-  {
+listing1 = Listing.create(
     title: "Cauliflower",
     price: 2.00,
     qty: 1,
@@ -106,9 +105,16 @@ listing = Listing.create([
     category_id: 1,
     subcategory_id: 12,
     uom_id: 1,
-    user_id: 1,
-  },
-  {
+    user_id: 1)
+
+    listing1.photo.attach(
+      io: File.open("app/assets/images/cauliflower.jpg"),
+      filename: "cauliflower.jpg",
+      content_type: "image/jpg")
+ 
+#  --- 
+
+  listing2 = Listing.create(
     title: "Artichoke",
     price: 1.50,
     qty: 1,
@@ -116,9 +122,16 @@ listing = Listing.create([
     category_id: 1,
     subcategory_id: 1,
     uom_id: 4,
-    user_id: 2,
-  },
-  {
+    user_id: 2)
+
+    listing2.photo.attach(
+      io: File.open("app/assets/images/artichoke.jpg"),
+      filename: "artichoke.jpg",
+      content_type: "image/jpg")
+
+  # ---
+
+  listing3 = Listing.create(
     title: "Figs",
     price: 5,
     qty: 1,
@@ -126,9 +139,11 @@ listing = Listing.create([
     category_id: 2,
     subcategory_id: 55,
     uom_id: 5,
-    user_id: 3,
-  },
-  {
+    user_id: 3) 
+
+  # ---
+
+  listing4 = Listing.create(
     title: "Heirloom Tomatos",
     price: 5.00,
     qty: 1,
@@ -136,9 +151,16 @@ listing = Listing.create([
     category_id: 1,
     subcategory_id: 40,
     uom_id: 6,
-    user_id: 1,
-  },
-  {
+    user_id: 1)
+
+    listing4.photo.attach(
+      io: File.open("app/assets/images/tomato-heirloom.jpg"),
+      filename: "tomato-heirloom.jpg",
+      content_type: "image/jpg")
+
+  # ---
+
+  listing5 = Listing.create(
     title: "Sage",
     price: 1,
     qty: 1,
@@ -146,9 +168,16 @@ listing = Listing.create([
     category_id: 3,
     subcategory_id: 102,
     uom_id: 2,
-    user_id: 2,
-  },
-  {
+    user_id: 4)
+
+  listing5.photo.attach(
+    io: File.open("app/assets/images/sage.jpg"),
+    filename: "sage.jpg",
+    content_type: "image/jpg")
+
+  # ---
+
+  listing6 = Listing.create(
     title: "Basil",
     price: 1,
     qty: 1,
@@ -156,19 +185,42 @@ listing = Listing.create([
     category_id: 3,
     subcategory_id: 83,
     uom_id: 2,
-    user_id: 3,
-  },
-])
+    user_id: 3)
+
+  listing6.photo.attach(
+    io: File.open("app/assets/images/basil.jpg"),
+    filename: "basil.jpg",
+    content_type: "image/jpg")
+
+    # ---   
+
+  listing7 = Listing.create(
+    title: "Baby Carrots",
+    price: 3,
+    qty: 5,
+    description: "I will harvest whichever day you collect so SUPER FRESH",
+    category_id: 1,
+    subcategory_id: 11,
+    uom_id: 5,
+    user_id: 4)
+
+  listing7.photo.attach(
+    io: File.open("app/assets/images/carrots-baby.jpg"),
+    filename: "carrots-baby.jpg",
+    content_type: "image/jpg")
+
+    # ---   
 
 puts "--------------"
 
-Listing.all.each do | listing |
-  listing.photo.attach(
-    io: File.open("app/assets/images/cauliflower.jpg"),
-    filename: "cauliflower.jpg",
-    content_type: "image/jpg"
-  )
-end
+# OLD METHOD OF ADDING SAME PHOTO TO ALL LISTINGS:
+# Listing.all.each do | listing |
+#   listing.photo.attach(
+#     io: File.open("app/assets/images/cauliflower.jpg"),
+#     filename: "cauliflower.jpg",
+#     content_type: "image/jpg"
+#   )
+# end
 
-puts "Added #{listing.count} listings"
+puts "Added #{Listing.all.count} listings"
 puts "--------------"
