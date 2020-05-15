@@ -24,7 +24,6 @@
     <% end %>
   </p>
 
-
   <p>View Produce by Category: 
     <%= search_form_for @q do |f| %>
     <%= f.select :category_name_cont, options_for_select(Category.search_select_options) %>
@@ -35,6 +34,13 @@
   <p>View Produce by Type: 
     <%= search_form_for @q do |f| %>
       <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
+      <%= f.submit %>
+      <% end %>
+   </p>
+
+  <p>View Produce by Grower: 
+    <%= search_form_for @q do |f| %>
+      <%= f.select :user_first_name_cont, options_for_select(User.search_select_options) %>
       <%= f.submit %>
       <% end %>
    </p>

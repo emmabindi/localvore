@@ -26,4 +26,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :location
 
   has_one :cart
+
+  def self.search_select_options
+    grower_list = User.all.collect do |user|
+      [user.first_name, user.first_name]
+    end
+  end
 end
