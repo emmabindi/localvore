@@ -1,10 +1,14 @@
-<p class="subtitle">buy, sell & swap locally grown, fresh produce</div>
+<div container-fluid>
+<%# <p class="subtitle">buy, sell & swap locally grown, fresh produce</div> %>
 
 <%# <%= image_tag('logo.png', class: 'logo') %>
 
 <div class="hero-img img-fluid">
-  <div>
-    <h1>Find Produce Near You</h1>
+  <div class="hero-words">    
+  <p class="subtitle">buy, sell & swap locally grown, fresh produce</p>
+    <a class="btn btn-light btn-lg" href="/listings" role="button">Find Produce</a>
+    <a class="btn btn-light btn-lg" href="/listings/new" role="button">Share Produce</a>
+    <p>Would like some words here</p>
   </div>
 </div>
 
@@ -24,3 +28,4 @@ Would you like to become a member?
 </div>
 
 <%= render "shared/back" %>
+</div>
