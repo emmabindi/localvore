@@ -6,19 +6,26 @@
   <p><%= flash[:success] %></p>
 <% end %>
 
-<h1>Show Listing</h1>
-
-<h5> <%= @listing.title %></h5>
-<p><strong>Price: </strong><%= number_to_currency(@listing.price) %> / <%= @listing.uom.unit %></p>
-<p><strong>Qty: </strong><%= @listing.qty %></p>
-<p><strong>Category: </strong><%= @listing.category.name %></p>
-<p><strong>Type: </strong><%= @listing.subcategory.name %></p>
-<p><strong>Description: </strong><%= @listing.description %></p>
-<p><strong>Grower: </strong><%= @listing.user.first_name %></p>
-
-<div class="show-image">
+<h2>View Listing</h2>
+<div class="card" style="width: 30rem;">
+  <div class="row no-gutters">
+    <div class="col-md-12">   
+     <div class="card-top">
+<div class="img-show">
   <%= render "image-logic", listing: @listing %>
 </div>
+   <div class="card-top-text">
+  <h5 class="card-title"> <%= @listing.title %></h5>
+  <p class= "card-subtitle mb-2 text-muted"><strong>Price: </strong><%= number_to_currency(@listing.price) %> / <%= @listing.uom.unit %></p>
+  <p><strong>Category: </strong><%= @listing.category.name %><br>
+  <strong>Type: </strong><%= @listing.subcategory.name %><br>
+  <strong>Description: </strong><%= @listing.description %>
+  <p class="text"><strong>Suburb: </strong><%= @listing.user.location.suburb %><br>
+  <strong>Grower: </strong><%= @listing.user.first_name %></p>
+
+  </div>
+  </div>
+  </div>
 
 <div class="show-edit-delete">
 

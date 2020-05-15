@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .card {
   flex-direction: row;
+  margin: 5px;
 }
 
 .card-top {
@@ -15,17 +16,24 @@
 }
 
 .img-index {
-  height: 200px;
-  max-width: 150px;
+  height: 220px;
+  max-width: 180px;
   margin-right: 10px;
+  border: 2px solid white;
 }
 
+.img-show {
+  max-height: 300px;
+  max-width: 200px;
+  margin-right: 10px;
+  border: 2px solid white;
+}
 .sorting {
   display: flex;
   flex-direction: row;
 }
 
 .sorting-links {
-  font-size: 10px;
+  font-size: 11px;
   margin-right: 5px;
 }

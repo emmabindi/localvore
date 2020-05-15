@@ -13,13 +13,10 @@
 <div class="card" style="width: 30rem;">
   <div class="row no-gutters">
     <div class="col-md-12">
-
   <%# The below link to helper allows the photo or listing title to be clicked on which will take you to view that product singurlarly in "show" %>
+    <div class="card-top">
     <%= link_to listing_path(listing) do %>
-
-  <%# The below renders the partial to handle image display %>
-  <div class="card-top">
-    <div class="index-image">
+    <div class="img-index">
       <%= render "image-logic", listing: listing %>
     </div>
     <div class="card-top-text">
@@ -28,29 +25,15 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= number_to_currency(listing.price) %> / <%= listing.uom.unit %></h6>
       <p class="card-text"><small class="text-muted"> Category: <%= listing.category.name %> (<%= listing.subcategory.name %>)</small></p>
       <p class="card-text">Description: <%= listing.description %> </p>
+      <p class="text">📍<%= listing.user.location.suburb %></p> 
+      <%# <%= 👨‍🌾 Grown by: <%= listing.user.first_name  %>
       </div>
   </div>
-
   </div>
-
-    <div class="col-md-12">
-      <div class="card-body">
-
-        <!-- <h6 class="card-subtitle mb-2 text-muted"> Qty Avail: <%= listing.qty %> </h6> -->
-
-      <p class="text">📍<%= listing.user.location.suburb %> </p>    
-      <p class="text"> 👨‍🌾 Grown by: <%= listing.user.first_name %> </p>
-
-        <%# **** NEED TO SETUP UP LINK TO VIEW ALL GROWERS PRODUCE LISTINGS *****%>
-      <!-- <a href="#" class="btn btn-light">View All <%= listing.user.first_name %>'s Produce</a> -->
-      </div> </p>
-    </div>
-
   </div>
 </div>
 
 <% end %>
-
 
 <%= render "shared/back" %>
 </div>

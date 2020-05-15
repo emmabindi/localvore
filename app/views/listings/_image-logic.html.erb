@@ -2,7 +2,9 @@
     <% if listing.photo.attached? %>
       <%= image_tag((listing.photo), :class => "img-index") if listing.photo.attached?  %>
     <% else %>
-      <%= image_tag(listing.default_image, class: 'card-img-top img-fluid') %>
+      <%= image_tag(listing.default_image, class: 'img-index') %>
     <% end %>
 
     <%# , :class => "img-thumbnail" %>
+
+    <%# ard-img-top img-fluid %>
