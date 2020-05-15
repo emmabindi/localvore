@@ -8,24 +8,23 @@
   <p class="subtitle">buy, sell & swap locally grown, fresh produce</p>
     <a class="btn btn-light btn-lg" href="/listings" role="button">Find Produce</a>
     <a class="btn btn-light btn-lg" href="/listings/new" role="button">Share Produce</a>
-    <p>Would like some words here</p>
+
+    <% if !user_signed_in? %>
+    <p class="sign-up"><strong>Not a member yet?</strong><br> Join our neighbouly marketplace community. Free to sign up & use</p>
+    <a class="btn btn-light btn-lg" href="/users/sign_up" role="button">Become a LocalVore</a>
+    </div>
+    <% end %>
+
   </div>
 </div>
 
-
-hero image and banner with links to share or find 
-<br>
-under that 
-<br>
-why it's great paragraph
-<br>
-then 
-<br>
-
-<div class="welcome-signup">
-Would you like to become a member?
-<a class="btn btn-primary" href="/users/sign_up" role="button">Become a LocalVore</a>
+<div class="why-text">
+  <p > Use LocalVore to find fresh homegrown produce - within bike riding distance from your house, or share your homegrown bounty and connect with your community </p> 
+</div>
+ 
 </div>
 
-<%= render "shared/back" %>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar footer">LocalVore: <i>'one who eats only locally-grown foods'     </i></span>
+  <span class="footer">     🙋🏼‍♀️Created by Emma Bindi, 2020 </span>
+</nav>
