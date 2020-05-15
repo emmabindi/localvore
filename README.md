@@ -10,6 +10,27 @@ find fresh homegrown produce - within bike riding distance from your home + shar
 
 # Github: https://github.com/emmabindi/localvore.git
 
+--- 
+Setup Instructions
+Clone this repo
+bundle install to install all required dependencies
+rake db:setup to create local database migrate and seed
+rails s to run the rails server
+Load http://localhost:3000/ in the browser
+
+---
+
+Logins
+
+e@gmail.com
+l@gmail.com
+b@gmail.com
+j@gmail.com
+
+All passwords are set to 111111
+
+---
+
 
 Purpose: Problem I am solving? 
 Connecting communities so users can source locally grown fresh produce and growers can share excess produce from their bounty 
