@@ -7,11 +7,17 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <span class="localvore">LocalVore</span>
+  </a>
+</nav>
+ 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <%# <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
+      </li> %>
 
       <li class="nav-item">
         <a class="nav-link" href="/listings">Find Produce</a>
@@ -28,9 +34,17 @@
       <li class="nav-item">
         <a class="nav-link" href="/users/edit">User Profile</a>
       </li>
+
+    <%# looks good but method doesnt work %>
+      <%# <li class="nav-item">
+        <a class="nav-link" href="/users/sign_out" data-method="delete ">Logout</a>
+      </li> %>
+
+    <%# link works but looks blue: %>
       <li class="nav-item nav-link">
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       </li>
+
       <% else %>
       <li class="nav-item">
         <a class="nav-link" href="/users/sign_in">Login</a>
