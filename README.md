@@ -135,7 +135,9 @@ Learnings / Challenges
 - rspec / TDD for models User and Listing
 - seeding: attaching individual images to listings 
 - using a new gem ransack 
-
+- jquery upgrade broke my hamburger menu 
+- cart implementation
+- use of Stripe and webhooks for first time (ultrahook api)
 
 Points 
 - use of partials to ensure code is dry: image-logic partial to handle the conditional treatment of whether photo is uploaded and if not, to display a default sketch image - affects index and show views 

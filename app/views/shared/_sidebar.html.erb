@@ -1,43 +1,43 @@
 <div class="sidebar">
   <div class="sidebar-content">
+  <div class="search">
+    <h6>Search all produce:</h6>
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :title_or_description_cont, placeholder: "Search by Keyword" %>
+      <%= f.submit %>
+      <% end %>
 
-    <p>Sort By: <%= sort_link(@q, :title, default_order: :asc) %></p>
-    <p>Sort By: <%= sort_link(@q, :price, default_order: :asc) %></p>
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :user_location_suburb_cont, placeholder: "Search by Suburb" %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 
-</div>
---- 
-<p>Search all produce:</p>
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :title_or_description_cont, placeholder: "Search by keyword" %>
-  <%= f.submit %>
-  <% end %>
+  <div class="filter">
+  <h6>Filter produce listings:</h6>
 
-<br><br>
-
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :user_location_suburb_cont, placeholder: "Search by Suburb" %>
-  <%= f.submit %>
-<% end %>
-
-<br><br>
-<%= search_form_for @q do |f| %>
-  <%= f.label :user_location_suburb_eq, "Search by Suburb: " %>
-  <%= f.select :user_location_suburb_eq, options_for_select(Location.search_select_options) %>
-  <%= f.submit %>
-<% end %>
-
-<br>
-<p>View Produce by Category: 
-  <%= search_form_for @q do |f| %>
-  <%= f.select :category_name_cont, options_for_select(Category.search_select_options) %>
-    <%= f.submit %>
-  <% end %>
+  <p>View Produce by Suburb: 
+    <%= search_form_for @q do |f| %>
+      <%# <%= f.label :user_location_suburb_eq, "Filter by Suburb: " %> 
+      <%= f.select :user_location_suburb_eq, options_for_select(Location.search_select_options) %>
+      <%= f.submit %>
+    <% end %>
   </p>
 
-<p>View Produce by Type: 
-  <%= search_form_for @q do |f| %>
-    <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
+
+  <p>View Produce by Category: 
+    <%= search_form_for @q do |f| %>
+    <%= f.select :category_name_cont, options_for_select(Category.search_select_options) %>
     <%= f.submit %>
-  <% end %>
-</p>
+    <% end %>
+  </p>
+
+  <p>View Produce by Type: 
+    <%= search_form_for @q do |f| %>
+      <%= f.select :subcategory_name_cont, options_for_select(Subcategory.search_select_options) %>
+      <%= f.submit %>
+      <% end %>
+   </p>
+    </div>
+  </div>
 </div>

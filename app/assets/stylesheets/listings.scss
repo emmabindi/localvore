@@ -1,3 +1,31 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.card {
+  flex-direction: row;
+}
+
+.card-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-top-text {
+  width: 100%;
+}
+
+.img-index {
+  height: 200px;
+  max-width: 150px;
+  margin-right: 10px;
+}
+
+.sorting {
+  display: flex;
+  flex-direction: row;
+}
+
+.sorting-links {
+  font-size: 10px;
+  margin-right: 5px;
+}
