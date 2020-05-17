@@ -31,7 +31,7 @@
 
   <% if can? :edit, @listing %>
     <%= link_to "Edit", edit_listing_path(@listing.id) %>
-    <%= link_to "Delete", listing_path(@listing.id), method: "delete" %>
+    <%= link_to "Delete", listing_path(@listing.id), method: :delete %>
     <% end %>
 
 <%# when add sold boolean need to add && @listing.sold == false %>
