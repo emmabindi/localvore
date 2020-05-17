@@ -13,7 +13,7 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 
 1. Links 
 2. Setup Instructions & Logins
-3. Overview & Business Problem 
+3. Overview & Problem 
 4. User Stories 
 5. Planning & Project Management 
 6. Wireframes & Sitemap
@@ -50,7 +50,7 @@ j@gmail.com   | `111111` |
 
 
 ---
-## 3. Overview & Business Problem
+## 3. Overview & Problem
 
 Purpose: Problem I am solving?   
 Connecting communities so users can source locally grown fresh produce and growers can share excess produce from their bounty 
