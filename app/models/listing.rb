@@ -20,4 +20,6 @@ class Listing < ApplicationRecord
   def default_image
     photo.attached? ? photo : 'fresh.png'
   end
+
+  self.per_page = 8
 end

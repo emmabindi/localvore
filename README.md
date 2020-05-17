@@ -240,7 +240,7 @@ insert
 **Stripe** | What id it, Why did I use it | 
 **Ultrahook** | What id it, Why did I use it | 
 **Ransack** | What id it, Why did I use it | 
-
+**Rails_12factor** | App not able to access jquery_ujs which assist with delete method working in Heroku, also helps in serving static assets in Heroku | 
 
 ---
 

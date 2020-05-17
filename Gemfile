@@ -61,3 +61,5 @@ gem "stripe", "~> 5.22"
 
 gem 'ransack'
 
+gem 'will_paginate', '~> 3.1'
+
