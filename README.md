@@ -1,38 +1,58 @@
+<div style="text-align: justify"> 
 
 --- 
-# Localvore
-*“one who eats only locally-grown foods”*
-buy, sell and swap locally grown, fresh produce 
-a neighbourly fresh produce marketplace 
-find fresh homegrown produce - within bike riding distance from your home + share your home grown bounty and connect with your community 
+# LocalVore
+*“One who eats only locally-grown foods”*
 
-# Heroku: https://git.heroku.com/radiant-shelf-48298.git
+### **LocalVore: the neighbourly fresh produce marketplace.** 
 
-# Github: https://github.com/emmabindi/localvore.git
+LocalVore is a two-sided marketplace which enables users to find fresh homegrown produce - within bike riding distance from home, and provides a platform for avid gardeners to share their homegrown bounty and connect with their community. 
 
 --- 
-Setup Instructions
-Clone this repo
-bundle install to install all required dependencies
-rake db:setup to create local database migrate and seed
-rails s to run the rails server
-Load http://localhost:3000/ in the browser
+## Contents: 
+
+1. Links 
+2. Setup Instructions & Logins
+3. Overview & Business Problem 
+4. User Stories 
+5. Planning & Project Management 
+6. Wireframes & Sitemap
+7. Entity Relationships 
+8. ERD 
+9. Database Schema Design
+10. Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy 
+11. Third Party Services 
+
+--- 
+
+## 1. Links
+
+### Heroku: https://git.heroku.com/radiant-shelf-48298.git
+
+### Github: https://github.com/emmabindi/localvore.git
+
+--- 
+## 2. Setup Instructions
+- Clone this repo
+- Bundle install to install all required dependencies
+- Rake db:setup to create local database migrate and seed
+- Rails s to run the rails server
+- Load http://localhost:3000/ in the browser
+
+### Logins
+
+Email  | Password | 
+--- | --- | ---
+e@gmail.com   | `111111` | 
+l@gmail.com   | `111111` | 
+b@gmail.com   | `111111` | 
+j@gmail.com   | `111111` | 
+
 
 ---
+## 3. Overview & Business Problem
 
-Logins
-
-e@gmail.com
-l@gmail.com
-b@gmail.com
-j@gmail.com
-
-All passwords are set to 111111
-
----
-
-
-Purpose: Problem I am solving? 
+Purpose: Problem I am solving?   
 Connecting communities so users can source locally grown fresh produce and growers can share excess produce from their bounty 
 Increasing biodiversity (not every grower needs to plant the same as Bob can grow eggplants and Jane can grow tomatos according to their space)
 slow food - high nutritional value as little time from soil to table 
@@ -42,38 +62,14 @@ Less waste and plastic packaging
 Small yards / little time / different harvest schedules 
 Swap without use of money … 
 
-Sitemap:
+
 Functionality/Features:
 Target Audience: 
 
 --- 
-ERD / Entities & Relations
 
+## 4. User Stories 
 
-Users: has many listings, has one cart, has one bio, has one profile_photo, has one location, has many conversations?, has many orders 
-
-Listings: belong to a user, has_one_attached :photo, enum (avail/not) has_many cart_listings, has many carts through cart_listings, 
-<!-- price / description / keywords / cat / type / qty -->
-
-Quantity: has many listings
-Category: has many listings
-Type: has many listings
-
-Cart: has many cart_listings, has many listings through cart_listing, belongs to User
-Cart_listing (joining table) belongs to listing, belongs to cart
-
-Location: has one address ...  belongs to a user 
-
-Conversations: have many messages, 
-Messages - belong to a conversation, belong to a user 
-User_conversation - belongs to user, belogns to conversation (JONING TABLE)
-
-<!-- Order: belongs to user, 
-OrdersListing join table?  -->
-
-
---- 
-# User Stories
 
 ## Persona's
 
@@ -113,20 +109,142 @@ Aged 35 - 50, has a larger backyard space and uses it to grow produce however bo
 ```fix
 option to settle a shopping cart by trade / swap instead of 
 ```
+
+
+--- 
+### 5. Planning & Project Management 
+
+Describe the way tasks are planned and tracked in your project
+
+MVP   
+Trello   
+Hand Written   
+Tracking / readjusting 
+
 --- 
 
+--- 
 
-Third party 
+### 6. Wireframes & Sitemap
 
-rspec
-bootstrap 
-devise
-cancancan 
-stripe 
-ultrahook api
-ransack 
+`Site Map:`   
+![Site Map](/app/assets/images/wireframes/Sitemap.png)
+
+`Mood Board:`  
+![Mood Board](/app/assets/images/moodboard.png)
+
+`Wireframe Welcome Page:`  
+![Wireframe - Welcome](/app/assets/images/wireframes/Home.png)
+
+`Wireframe Find Produce:`  
+![Wireframe - Find Produce](/app/assets/images/wireframes/Find-Produce-Page.png)
+
+`Wireframe View Produce Listing:`  
+![Wireframe - View Produce Listing](/app/assets/images/wireframes/View-Produce-Listing.png)
+
+`Wireframe Add Produce Listing:`  
+![Wireframe - Add Produce Listing](/app/assets/images/wireframes/Add-A-Listing.png)
+
+`Wireframe User Sign Up:`  
+![Wireframe - User Sign Up](/app/assets/images/wireframes/User-Sign-Up.png)
+
 ---
 
+### 7. Entity Relationships 
+
+
+Users: has many listings, has one cart, has one bio, has one profile_photo, has one location, has many conversations?, has many orders 
+
+Listings: belong to a user, has_one_attached :photo, enum (avail/not) has_many cart_listings, has many carts through cart_listings, 
+<!-- price / description / keywords / cat / type / qty -->
+
+Quantity: has many listings
+Category: has many listings
+Type: has many listings
+
+Cart: has many cart_listings, has many listings through cart_listing, belongs to User
+Cart_listing (joining table) belongs to listing, belongs to cart
+
+Location: has one address ...  belongs to a user 
+
+Conversations: have many messages, 
+Messages - belong to a conversation, belong to a user 
+User_conversation - belongs to user, belogns to conversation (JONING TABLE)
+
+<!-- Order: belongs to user, 
+OrdersListing join table?  -->
+
+--- 
+
+Explain the different high-level components (abstractions) in your App
+
+it means talking about how your app is using inheritance to get the rails higher level components
+
+for instance your model files are inheriting from ApplicationRecord (Active Record)
+
+so you'd explain how by inheriting from active record you get heaps of extra methods
+
+that then allow you to do CRUD actions on your db
+
+you could also talk about ApplicationController
+or talk about erb
+
+
+---- 
+Describe your project’s models in terms of the relationships (active record associations) they have with each other 
+
+--- 
+
+Discuss the database relations to be implemented
+
+--- 
+Provide your database schema design
+
+ 
+--- 
+normalised database model
+minimising database calls
+eager loading vs lazy loading 
+sanitise and validate inputs to maintain data integrity 
+code commenting
+
+--- 
+### 8. ERD 
+
+`LocalVore ERD:`  
+![LocalVore ERD](app/assets/images/MarketplaceERB.png)
+
+--- 
+### 9. Database Schema Design 
+
+``` 
+insert 
+```
+--- 
+
+10. Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy 
+
+
+--- 
+
+--- 
+
+### 11. Third Party Services
+
+3rd Party Service  |  | 
+--- | :---: | :---
+**Rspec-rails** | What id it, Why did I use it | 
+**Bootstrap** | What id it, Why did I use it | 
+**Devise** | What id it, Why did I use it | 
+**Cancancan** | What id it, Why did I use it | 
+**Stripe** | What id it, Why did I use it | 
+**Ultrahook** | What id it, Why did I use it | 
+**Ransack** | What id it, Why did I use it | 
+
+
+---
+
+PowerPoint Info: 
 
 Learnings / Challenges 
 - extensive use of git branching to develop features before merging into master file 
@@ -143,3 +261,5 @@ Points
 - use of partials to ensure code is dry: image-logic partial to handle the conditional treatment of whether photo is uploaded and if not, to display a default sketch image - affects index and show views 
 - use of form partial 
 - use of nav partial 
+
+</div>
