@@ -1,17 +1,15 @@
 <h1>Cart</h1>
 
-<ul>
+<ol>
   <% @cart.each do | listing | %>
-    <li><%= listing.title %>  <%= number_to_currency(listing.price) %></li>
+    <li><%= listing.title %>  <%= number_to_currency(listing.price) %> (Grower: <%= listing.user.first_name %>)</li>
   <% end %>
-</ul>
+</ol>
 
-<%# ADD IN A PAYMENT TOTAL %>
-
-<%# <%= @cart.calculate_total_price %> %>
+<p>Cart Total: $<%= @total %></p>
 
 <%# MAKE SURE ONLY THE SAME GROWER IS COMBINED TOGETHER %>
 
-<%= link_to "Pay for Cart", "", id: "stripe" %>
+<%= link_to "Pay for Cart (Using Stripe)", "", id: "stripe" %>
 
 <%= javascript_pack_tag "stripe" %>

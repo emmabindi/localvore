@@ -5,6 +5,8 @@ class CartsController < ApplicationController
     else
       redirect_to listings_path
     end
+
+    @total = cart_total
   end
 
   def create
@@ -16,5 +18,14 @@ class CartsController < ApplicationController
     listing = Listing.find(params[:listing_id])
     cart.listings << listing
     redirect_to listings_path
+  end
+
+  private 
+  def cart_total
+    sum = 0 
+    @cart.each do |cart_item|
+      sum += cart_item.price
+    end
+    return sum
   end
 end
