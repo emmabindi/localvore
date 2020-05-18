@@ -1,2 +1,5 @@
 <h2>Location#show</h2>
 <h6>Address: <%= @location.full_address %></h6>
+
+<div style="height: 500px" id="map"></div>
+<%= javascript_pack_tag "leaflet/show" %>

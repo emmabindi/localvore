@@ -6,6 +6,7 @@ class LocationController < ApplicationController
         [location.latitude, location.longitude]
       end
       render json: {data: data}
+    end
   end
 
   def show
@@ -13,5 +14,14 @@ class LocationController < ApplicationController
     if params[:type] == "json"
       render json: {data: [@location.latitude, @location.longitude]}
     end
+  end
+
+  def search
+    location = Geocoder.search(params[:search])[0].data["geometry"]["location"]
+    @locations = Location.all 
+    data = @locations.map do |location|
+      [location.latitude, location.longitude]
+    end
+    render json: {data: data, center: [location["lat"], location["lng"]]}
   end
 end
