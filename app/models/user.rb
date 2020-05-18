@@ -25,7 +25,7 @@ class User < ApplicationRecord
   has_one :location, dependent: :destroy
   accepts_nested_attributes_for :location
 
-  has_one :cart
+  has_many :carts
 
   def self.search_select_options
     grower_list = User.all.collect do |user|
