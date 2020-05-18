@@ -1,2 +1,12 @@
-You've successfully made a payment! <%= link_to "Go To Listings", listings_path
-%>
+You've successfully made a payment! 
+
+Items Purchased:
+
+<div>
+<%= @listings.each do |listing| %>
+  <%= listing.title %>
+<% end %>
+
+</div>
+
+<%= link_to "Go To Listings", listings_path %>
