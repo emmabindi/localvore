@@ -1,16 +1,21 @@
-<h2>Update My Details <%= resource_name.to_s.humanize %></h2>
+<h2>Update My Details</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+<form>
+
+  <div class="form-group">
+    <div class="row">
+    <div class="col-md-4">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+    <div class="col-md-5">
     <%= f.label :bio %>
-    <%= f.text_area :bio, autocomplete: "bio" %>
+    <%= f.text_area :bio, class: "form-control", autocomplete: "bio" %>
+  </div>
   </div>
 
   <div class="field">
@@ -24,49 +29,65 @@
   <% end %>
 
   <%= f.fields_for :location, Location.new do |location_form| %>
-  <div class="field">
+  <div class="form-group">
   <p><strong>Update Address:</strong></p>
+    <div class="row">
+    <div class="col-md-4">
     <%= location_form.label :street_address %>
-    <%= location_form.text_field :street_address %>
+    <%= location_form.text_field :street_address, class: "form-control"  %>
+    </div>
+    <div class="col-md-4">
     <%= location_form.label :suburb %>
-    <%= location_form.text_field :suburb %><br>
+    <%= location_form.text_field :suburb, class: "form-control"  %>
+    </div>
+    <div class="col-md-4">
     <%= location_form.label :city %>
-    <%= location_form.text_field :city %>
+    <%= location_form.text_field :city, class: "form-control"  %>
+    </div>
+   <div class="col-md-4">
     <%= location_form.label :state %>
-    <%= location_form.text_field :state %>
+    <%= location_form.text_field :state, class: "form-control"  %>
+    </div>
+    <div class="col-md-4">
     <%= location_form.label :country %>
-    <%= location_form.text_field :country %>
+    <%= location_form.text_field :country, class: "form-control"  %>
+  </div>
   </div>
   <br>
 <% end %>
 
-  <p>-------------------------------------------</p>
+<hr>
 
-  <div class="field">
+  <div class="form-group">
   <p><strong>Update Password: </strong><i>(leave blank if you don't want to change it)</i></p>
+    <div class="row">
+    <div class="col-md-4">
     <%= f.label :password %> <i></i>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     <% if @minimum_password_length %>
       <!-- <em><%= @minimum_password_length %> characters minimum</em> -->
     <% end %>
+    </div>
+    <div class="col-md-4">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
   </div>
 
-  <p>-------------------------------------------</p>
+<hr>
 
   <div class="field">
-  <p><strong>Enter your current password to confirm these changes:</strong></p>
+  <h6><strong>Enter your current password to confirm these changes:</strong></h6>
     <%= f.label :current_password %> <i></i>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<p>-------------------------------------------</p>
+<hr>
 <br>
 <h3>Cancel my account</h3>
 
