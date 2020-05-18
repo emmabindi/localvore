@@ -2,7 +2,7 @@ import { icon } from './icon'
 import { tileLayer } from './tileLayer'
 
 const renderMap = async (search) => {
-  const url = search ? `/location/map/${search}` : `/location?type=json`
+  const url = search ? `/locations/map/${search}` : `/locations?type=json`
   const response = await fetch(url)
   const { data, center } = await response.json()
   const map = await tileLayer(center)
