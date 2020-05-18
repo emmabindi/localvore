@@ -1,57 +1,78 @@
-<h2>Sign up</h2>
+<h2>Become a LocalVore Member</h2>
+<p><i>Free to sign up and free to use</i></p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <%= f.label :surname %>
-    <%= f.text_field :surname %>
-  </div>
+<form>
 
-  <div class="field">
+  <div class="form-group">
+  <p><strong>Personal Details:</strong></p>
+    <div class="row">
+    <div class="col-md-4">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    <div class="col-md-4">
+    <%= f.label :surname %>
+    <%= f.text_field :surname, class: "form-control"  %>
+      </div>
+    <div class="col-md-4">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
   <br>
 
-  <%# ---- %>
-<%# trying to add in address fields upon sign up:  %>
-
 <%= f.fields_for :location, Location.new do |location_form| %>
-  <div class="field">
+  <div class="form-group">
   <p><strong>Address:</strong></p>
+    <div class="row">
+    <div class="col-md-4">
     <%= location_form.label :street_address %>
-    <%= location_form.text_field :street_address %>
+    <%= location_form.text_field :street_address, class: "form-control"  %>
+    </div>
+    <div class="col-md-4">
     <%= location_form.label :suburb %>
-    <%= location_form.text_field :suburb %><br>
+    <%= location_form.text_field :suburb, class: "form-control"  %>
+    </div>
+    <div class="col-md-4">
     <%= location_form.label :city %>
-    <%= location_form.text_field :city %>
+    <%= location_form.text_field :city, class: "form-control"  %>
+    </div>
+   <div class="col-md-4">
     <%= location_form.label :state %>
-    <%= location_form.text_field :state %>
+    <%= location_form.text_field :state, class: "form-control"  %>
+    </div>
+    <div class="col-md-4">
     <%= location_form.label :country %>
-    <%= location_form.text_field :country %>
+    <%= location_form.text_field :country, class: "form-control"  %>
+  </div>
   </div>
   <br>
 <% end %>
 
-  <%# ---- %>
-
-  <div class="field">
+  <div class="form-group">
   <p><strong>Set Password:</strong></p>
+    <div class="row">
+    <div class="col-md-4">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %><br>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %><br>
+    </div>
+    <div class="col-md-4">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>
 <% end %>
+</form>
+<br>
 
 <%= render "devise/shared/links" %>
