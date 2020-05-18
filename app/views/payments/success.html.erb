@@ -1,10 +1,10 @@
-You've successfully made a payment! 
-
-Items Purchased:
+<h5> You've successfully made a payment! </h5>
+<br>
+<p><strong>Items Purchased:</strong></p>
 
 <div>
-<%= @listings.each do |listing| %>
-  <%= listing.title %>
+<% @listings.each do |listing| %>
+  <%= listing.title %>: $<%= listing.price %>
 <% end %>
 
 </div>
