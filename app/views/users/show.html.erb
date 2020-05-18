@@ -1,0 +1,14 @@
+<h2>Meet the Grower</h2>
+
+<h3><%= @user.first_name %></h3>
+<p><%= @user.bio %></p>
+<%= image_tag @user.profile_photo if @user.profile_photo.attached? %>
+<br>
+
+<strong>Produce Listings:</strong>
+<ol>
+<% @user_listings.each do |listing| %>
+  <li><%= link_to listing.title, listing_path(listing) %>
+  <%= number_to_currency(listing.price) %></li>
+<% end %>
+</ol>

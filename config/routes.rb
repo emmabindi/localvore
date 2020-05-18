@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :listings
   resources :carts, only: [:create, :index]
+  resources :users 
 
   root to: 'welcome#index'
 end
