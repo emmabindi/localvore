@@ -5,8 +5,10 @@
   <h3>Address: <%= location.full_address %></h3>
   <hr>
 <% end %>
+</div>
 
-<div style="height: 500px" id="map"></div>
+<div class="container">
+<div style="height: 500px; width: 500px" id="map"></div>
 </div>
 
 <%= javascript_pack_tag "leaflet/index" %>

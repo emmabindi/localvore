@@ -2,7 +2,7 @@ import { icon } from './icon'
 import { tileLayer } from './tileLayer'
 
 const renderMap = async (search) => {
-  const url = search ? `/locations/map/${search}` : `/locations?type=json`
+  const url = `/location?type=json` 
   const response = await fetch(url)
   const { data, center } = await response.json()
   const map = await tileLayer(center)
@@ -12,13 +12,13 @@ const renderMap = async (search) => {
   L.featureGroup(markers).addTo(map)
 }
 
-const search = document.querySelector("#search-form")
-search.addEventListener('submit', async (e) => {
-  e.preventDefault()
-  map.remove()
-  document.querySelector(".map-container").innerHTML = `<div id="map"></div>`
-  const value = e.target.elements[0].value
-  renderMap(value)
-})
+// const search = document.querySelector("#search-form")
+// search.addEventListener('submit', async (e) => {
+//   e.preventDefault()
+//   map.remove()
+//   document.querySelector(".map-container").innerHTML = `<div id="map"></div>`
+//   const value = e.target.elements[0].value
+//   renderMap(value)
+// })
 
 renderMap()
