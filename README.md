@@ -224,7 +224,15 @@ insert
 
 10. Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy 
 
+Normalisation through schema design
 
+
+Data Integrity: sanitize and validate through permitted and required parameters 
+validations in the models for length or presence 
+
+Query efficiency through use of includes 
+
+Lazy Loading aachieved through pagination: 
 --- 
 
 --- 
