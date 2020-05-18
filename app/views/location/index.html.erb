@@ -1,9 +1,17 @@
 <h2>Locations Index</h2>
+<%# 
+<form id="search-form">
+  <input type="text" name="search" id="search">
+  <input type="submit" value="Search">
+</form> %>
 
+<div class="container">
 <% @locations.each do | location | %>
   <h3>Address: <%= location.full_address %></h3>
   <hr>
 <% end %>
 
 <div style="height: 500px" id="map"></div>
+</div>
+
 <%= javascript_pack_tag "leaflet/index" %>

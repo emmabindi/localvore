@@ -11,7 +11,9 @@ class Location < ApplicationRecord
   end
 
   def full_address
-    self.street_address + self.suburb + self.state + self.country
+    # self.street_address + self.suburb + self.state + self.country
+    # [local_address, state, country].compact.join(', ')
+    [street_address, suburb, state, country].compact.join(', ')
   end
 end
 
