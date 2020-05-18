@@ -1,17 +1,25 @@
 <h2>Meet the Grower</h2>
 
-<%= image_tag @user.profile_photo if @user.profile_photo.attached? %>
-<h3><%= @user.first_name %></h3>
-<p><strong>Bio: </strong><%= @user.bio %></p>
-<p><strong>Suburb: </strong><%= @user.location.suburb %></p>
-<br>
+<div class="card profile" style="width: 35rem;">
 
-<strong><%= @user.first_name %>'s Produce Listings:</strong>
-<ol>
-<% @user_listings.each do |listing| %>
-  <li><%= link_to listing.title, listing_path(listing) %>
-  <%= number_to_currency(listing.price) %></li>
-<% end %>
-</ol>
+  <div class="card-img-top">
+  <%= image_tag(@user.profile_photo, :class => "img-index") if @user.profile_photo.attached? %>
+  </div>
+  
+<div class="card-body">
+  <h3 class="card-text"><%= @user.first_name %></h3>
+  <p class="card-text"><strong>Bio: </strong><%= @user.bio %></p>
+  <p class="card-text"><strong>Suburb: </strong><%= @user.location.suburb %></p>
+</div>
 
+<div class="card-footer">
+  <strong><%= @user.first_name %>'s Produce Listings:</strong>
+  <ol>
+  <% @user_listings.each do |listing| %>
+    <li><%= link_to listing.title, listing_path(listing) %>
+    <%= number_to_currency(listing.price) %></li>
+  <% end %>
+  </ol>
+</div>
+</div>
 <hr>
