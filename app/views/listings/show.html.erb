@@ -22,13 +22,13 @@
   <strong>Description: </strong><%= @listing.description %>
   <p class="text"><strong>Suburb: </strong><%= @listing.user.location.suburb %><br>
   <strong>Grower: </strong><%= @listing.user.first_name %></p>
-
+  <%= link_to "Meet the Grower", user_path(@listing.user.id) %>
   </div>
   </div>
   </div>
 
 <div class="show-edit-delete">
-
+<br>
   <% if can? :edit, @listing %>
     <%= link_to "Edit", edit_listing_path(@listing.id) %>
     <%= link_to "Delete", listing_path(@listing.id), method: "delete" %>
@@ -36,6 +36,7 @@
 
 <%# when add sold boolean need to add && @listing.sold == false %>
   <% if user_signed_in? && @listing.user.id != current_user.id %>
+  <br>
     <%= link_to "Add to Cart", carts_path(listing_id: @listing.id), method: :post %>
   <% end %>
 

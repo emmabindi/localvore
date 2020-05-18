@@ -8,36 +8,53 @@
 
 puts "--------------"
 puts "Adding users.."
-user = User.create([
-  {
+user1 = User.create(
     first_name: "Emma",
     surname: "Bindi",
     email: "e@gmail.com",
     password: "111111", 
-    bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs",
-  },
-  {
+    bio: "Gen Y living in South Yarra, love spending time in my garden growing herbs")
+
+  user1.profile_photo.attach(
+    io: File.open("app/assets/images/lady-hat.jpg"),
+    filename: "lady-hat.jpg",
+    content_type: "image/jpg")
+
+user2 = User.create(
     first_name: "Laura",
     surname: "Bindi",
     email: "l@gmail.com",
     password: "111111", 
-    bio: "Some information goes here all about her",
-  },
-  {
+    bio: "Some information goes here all about her")
+
+  user2.profile_photo.attach(
+    io: File.open("app/assets/images/avatar-lady-hat.jpg"),
+    filename: "avatar-lady-hat.jpg",
+    content_type: "image/jpg")
+
+user3 = User.create(
     first_name: "Brenda",
     surname: "Bindi",
     email: "b@gmail.com",
     password: "111111", 
-    bio: "Empty nester with lots of backyard space for growing veggies and herbs. Lover of travel and adventure.",
-    },
-  {
+    bio: "Empty nester with lots of backyard space for growing veggies and herbs. Lover of travel and adventure.")
+
+  user3.profile_photo.attach(
+    io: File.open("app/assets/images/lady-gardener-hat.png"),
+    filename: "lady-garener-hat.png",
+    content_type: "image/png")
+
+user4 = User.create(
     first_name: "Josh",
     surname: "Bollen",
     email: "j@gmail.com",
     password: "111111", 
-    bio: "Spend my free time catching waves or getting dirt under my fingernails. I work FIFO so need to share my garden bounty as I'm away intermittently.",
-    },
-])
+    bio: "Spend my free time catching waves or getting dirt under my fingernails. I work FIFO so need to share my garden bounty as I'm away intermittently.")
+
+  user4.profile_photo.attach(
+    io: File.open("app/assets/images/man-gardener.png"),
+    filename: "man-gardener.png",
+    content_type: "image/png")
 
 puts "--------------"
 puts "Adding addresses.."
@@ -79,15 +96,7 @@ location = Location.create([
 
 puts "--------------"
 
-User.all.each do | user |
-  user.profile_photo.attach(
-    io: File.open("app/assets/images/sketchman.jpeg"),
-    filename: "sketchman.jpeg",
-    content_type: "image/jpeg"
-  )
-end
-
-puts "Added #{user.count} users"
+puts "Added 4 users"
 
 puts "--------------"
 
