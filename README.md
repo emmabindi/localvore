@@ -252,6 +252,7 @@ Lazy Loading aachieved through pagination:
 **Will_Paginate** | Ruby gem to implemented pagination for the listings index - this limits the number of images/listings loaded on the index landing page which will increase efficiency once the listings count is high. Allows user to move through pages with links at the bottom of the listings view and provides page count (... Next) | 
 **Geocoder** | Gem | 
 **Leaflet** | Javascript client side library for displaying maps | 
+**Sanitize** | Ruby gem which sanitizes html and css inputs (received in from user inputs through fields such as 'title' or 'description' in the add produce listing forms, and strips them of any malicious content) | 
 
 
 ---
@@ -268,6 +269,8 @@ Learnings / Challenges
 - jquery upgrade broke my hamburger menu 
 - cart implementation
 - use of Stripe and webhooks for first time (ultrahook api)
+- use of Google Maps API, MapBox and Leaflet javascript library - learning to understand and debug new types of errors
+- Heroku deployment - database reset and familiarity with new commands 
 
 Points 
 - use of partials to ensure code is dry: image-logic partial to handle the conditional treatment of whether photo is uploaded and if not, to display a default sketch image - affects index and show views 

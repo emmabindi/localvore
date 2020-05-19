@@ -119,6 +119,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    nokogumbo (2.0.2)
+      nokogiri (~> 1.8, >= 1.8.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
     polyamorous (2.3.2)
@@ -190,6 +192,10 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
+    sanitize (5.1.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.8.0)
+      nokogumbo (~> 2.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
@@ -256,6 +262,7 @@ DEPENDENCIES
   rails_12factor
   ransack
   rspec-rails
+  sanitize
   sass-rails (>= 6)
   spring
   spring-watcher-listen (~> 2.0.0)

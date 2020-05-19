@@ -66,3 +66,5 @@ gem 'will_paginate', '~> 3.1'
 gem "geocoder", "~> 1.6"
 
 gem 'leaflet-rails'
+
+gem 'sanitize'
