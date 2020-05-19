@@ -250,6 +250,9 @@ Lazy Loading aachieved through pagination:
 **Ransack** | What id it, Why did I use it | 
 **Rails_12factor** | App not able to access jquery_ujs which assist with delete method working in Heroku, also helps in serving static assets in Heroku | 
 **Will_Paginate** | Ruby gem to implemented pagination for the listings index - this limits the number of images/listings loaded on the index landing page which will increase efficiency once the listings count is high. Allows user to move through pages with links at the bottom of the listings view and provides page count (... Next) | 
+**Geocoder** | Gem | 
+**Leaflet** | Javascript client side library for displaying maps | 
+
 
 ---
 

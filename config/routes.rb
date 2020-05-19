@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'location/index'
+  # get 'location/show'
+  get '/location', to: "location#index"
+  get '/location/:id', to: "location#show"
   get 'welcome/index'
   get "/payments/session", to: "payments#get_stripe_id"
   get "/payments/success", to: "payments#success"
