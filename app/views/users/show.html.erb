@@ -13,7 +13,7 @@
 
   
 <div class="card-body">
-  <h3 class="card-text"><%= @user.first_name %></h3>
+  <h3 class="card-text">🧑‍🌾 <%= @user.first_name %></h3>
   <p class="card-text"><strong>Bio: </strong><%= @user.bio %></p>
   <p class="card-text"><strong>Suburb: </strong><%= @user.location.suburb %></p>
 </div>
@@ -29,3 +29,5 @@
 </div>
 </div>
 <hr>
+<%= render "shared/back" %>
+

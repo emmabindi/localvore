@@ -21,7 +21,7 @@
 
 .img-show {
   max-height: 300px;
-  max-width: 200px;
+  max-width: 220px;
   margin-right: 10px;
   border: 2px solid white;
 }
@@ -33,4 +33,10 @@
 .sorting-links {
   font-size: 11px;
   margin-right: 5px;
+}
+
+.show-edit-delete a {
+  margin: 0px 8px 5px 8px;
+  padding: 8px;
+  // color: black;
 }
