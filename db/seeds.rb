@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 puts "--------------"
 puts "Adding users.."
 user1 = User.create(
@@ -141,16 +133,21 @@ listing1 = Listing.create(
   # ---
 
   listing3 = Listing.create(
-    title: "Figs",
-    price: 5,
-    qty: 1,
-    description: "Perfectly ripe",
+    title: "Strawberries",
+    price: 2,
+    qty: 10,
+    description: "Super sweet, variety of sizes",
     category_id: 2,
-    subcategory_id: 55,
-    uom_id: 5,
-    user_id: 3) 
+    subcategory_id: 48,
+    uom_id: 4,
+    user_id: 3)
 
-  # ---
+  listing3.photo.attach(
+    io: File.open("app/assets/images/strawberry-basket.jpg"),
+    filename: "strawberry-basket.jpg",
+    content_type: "image/jpg")
+
+    # ---  
 
   listing4 = Listing.create(
     title: "Heirloom Tomatos",
@@ -255,32 +252,35 @@ listing1 = Listing.create(
     # ---  
 
   listing10 = Listing.create(
-    title: "Strawberries",
-    price: 2,
-    qty: 10,
-    description: "Super sweet, variety of sizes",
+    title: "Figs",
+    price: 5,
+    qty: 1,
+    description: "Perfectly ripe",
     category_id: 2,
-    subcategory_id: 48,
-    uom_id: 4,
-    user_id: 3)
+    subcategory_id: 55,
+    uom_id: 5,
+    user_id: 3) 
 
-  listing10.photo.attach(
-    io: File.open("app/assets/images/strawberry-basket.jpg"),
-    filename: "strawberry-basket.jpg",
+  # ---
+
+  listing11 = Listing.create(
+    title: "Black Grapes",
+    price: 2,
+    qty: 5,
+    description: "Perfectly ripe, small seeds",
+    category_id: 2,
+    subcategory_id: 56,
+    uom_id: 5,
+    user_id: 4)
+
+  listing11.photo.attach(
+    io: File.open("app/assets/images/grapes-black.jpg"),
+    filename: "grapes-black.jpg",
     content_type: "image/jpg")
 
-    # ---  
+  # ---  
+
 
 puts "--------------"
 puts "Added #{Listing.all.count} listings"
 puts "--------------"
-
-# OLD METHOD OF ADDING SAME PHOTO TO ALL LISTINGS:
-# Listing.all.each do | listing |
-#   listing.photo.attach(
-#     io: File.open("app/assets/images/cauliflower.jpg"),
-#     filename: "cauliflower.jpg",
-#     content_type: "image/jpg"
-#   )
-# end
-
