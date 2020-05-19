@@ -9,10 +9,10 @@
 LocalVore is a two-sided marketplace which enables users to find fresh homegrown produce - within bike riding distance from home, and provides a platform for avid gardeners to share their homegrown bounty and connect with their community. 
 
 --- 
-## Contents: 
+## Table of Contents: 
 
-1. Links 
-2. Setup Instructions & Logins
+* [Links](#links)  
+* [Setup Instructions & Logins](#setup)
 3. Overview & Problem 
 4. User Stories 
 5. Planning & Project Management 
@@ -21,18 +21,20 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 8. ERD 
 9. Database Schema Design
 10. Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy 
-11. Third Party Services 
+* [Third Party Services](#thirdparty)
 
 --- 
-
-## 1. Links
+<a name="links"/></a>
+## 1. Links  
 
 ### Heroku: https://git.heroku.com/radiant-shelf-48298.git
 
 ### Github: https://github.com/emmabindi/localvore.git
 
 --- 
-## 2. Setup Instructions
+<a name="setup"/></a>
+## 2. Setup Instructions  
+
 - Clone this repo
 - Bundle install to install all required dependencies
 - Rake db:setup to create local database migrate and seed
@@ -236,8 +238,8 @@ Lazy Loading aachieved through pagination:
 --- 
 
 --- 
-
-### 11. Third Party Services
+<a name="thirdparty"/></a>
+## 11. Third Party Services
 
 3rd Party Service  |  | 
 --- | :---: | :---
