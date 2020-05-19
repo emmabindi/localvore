@@ -44,8 +44,9 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 ### Logins
 
 Email  | Password |   
---- | --- | ---  
-e@gmail.com   | `111111` |   
+--- | :---: | :---   
+
+e@gmail.com   | `111111` |    
 l@gmail.com   | `111111` |   
 b@gmail.com   | `111111` |   
 j@gmail.com   | `111111` |   
