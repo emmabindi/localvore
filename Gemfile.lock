@@ -98,6 +98,8 @@ GEM
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
+    leaflet-rails (1.6.0)
+      rails (>= 4.2.0)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -246,6 +248,7 @@ DEPENDENCIES
   devise (~> 4.7)
   geocoder (~> 1.6)
   jbuilder (~> 2.7)
+  leaflet-rails
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
