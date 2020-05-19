@@ -1,10 +1,16 @@
 <h2>Meet the Grower</h2>
 
-<div class="card profile" style="width: 35rem;">
+<div class="card profile" style="width: 38rem;">
 
-  <div class="card-img-top">
-  <%= image_tag(@user.profile_photo, :class => "img-index") if @user.profile_photo.attached? %>
-  </div>
+<div class="card-img-top">
+<div class="row">
+<%= image_tag(@user.profile_photo, :class => "img-index profile-photo") if @user.profile_photo.attached? %>
+
+<div class="profile-map" id="map"></div>
+<%= javascript_pack_tag "leaflet/show" %>
+</div>
+</div>
+
   
 <div class="card-body">
   <h3 class="card-text"><%= @user.first_name %></h3>

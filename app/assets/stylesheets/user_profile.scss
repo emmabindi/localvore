@@ -1,3 +1,24 @@
 .profile {
   flex-direction: column;
 }
+
+.card-img-top {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-photo {
+  margin: 20px 20px 20px 40px;
+  align-self: flex-start;
+}
+
+.profile-map {
+  margin: 20px 20px 20px 50px;
+  max-height: 220px;
+  width: 280px;
+}
+
+h3 {
+  font-family: 'Handlee', cursive;
+  margin-bottom: 10px;
+}

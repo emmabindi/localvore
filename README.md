@@ -274,4 +274,11 @@ Points
 - use of form partial 
 - use of nav partial 
 
+Stretch Goals: 
+- Qty function 
+- Email for order confirmation 
+- Messaging within app between growers & buyers
+- Shopping Cart bugs: currently sellers can purchase their own produce, items still display once sold, 
+- Map: markers to link to the grower profile
+
 </div>
