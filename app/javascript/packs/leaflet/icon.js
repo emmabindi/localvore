@@ -1,4 +1,3 @@
-  
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css"
 import icon1 from "leaflet/dist/images/marker-icon.png"
