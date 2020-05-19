@@ -11,16 +11,16 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 --- 
 ## Table of Contents: 
 
-* [Links](#links)  
-* [Setup Instructions & Logins](#setup)
-3. Overview & Problem 
-4. User Stories 
-5. Planning & Project Management 
-6. Wireframes & Sitemap
-7. Entity Relationships 
-8. ERD 
-9. Database Schema Design
-10. Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy 
+1.  [Links](#links)  
+2. [Setup Instructions & Logins](#setup)
+3. [Overview & Problem](#overview)
+4. [User Stories](#userstories)
+5. [Planning & Project Management](#projectmgnt) 
+6. [Wireframes & Sitemap](#wireframes)
+7. [Entity Relationships](#relations)
+8. [Entity Relationship Diagram](#erd) 
+9. [Database Schema Design](#schema)
+10. [Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy](#methodology)
 * [Third Party Services](#thirdparty)
 
 --- 
@@ -45,13 +45,14 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 
 Email  | Password | 
 --- | --- | ---
-e@gmail.com   | `111111` | 
-l@gmail.com   | `111111` | 
-b@gmail.com   | `111111` | 
-j@gmail.com   | `111111` | 
+e@gmail.com   | `111111` |   
+l@gmail.com   | `111111` |   
+b@gmail.com   | `111111` |   
+j@gmail.com   | `111111` |   
 
 
 ---
+<a name="overview"/></a>
 ## 3. Overview & Problem
 
 Purpose: Problem I am solving?   
@@ -69,7 +70,7 @@ Functionality/Features:
 Target Audience: 
 
 --- 
-
+<a name="userstories"/></a>
 ## 4. User Stories 
 
 
@@ -114,6 +115,7 @@ option to settle a shopping cart by trade / swap instead of
 
 
 --- 
+<a name="projectmgnt"/></a>
 ### 5. Planning & Project Management 
 
 Describe the way tasks are planned and tracked in your project
@@ -123,10 +125,10 @@ Trello
 Hand Written   
 Tracking / readjusting 
 
---- 
+
 
 --- 
-
+<a name="wireframes"/></a>
 ### 6. Wireframes & Sitemap
 
 `Site Map:`   
@@ -151,7 +153,7 @@ Tracking / readjusting
 ![Wireframe - User Sign Up](/app/assets/images/wireframes/User-Sign-Up.png)
 
 ---
-
+<a name="relations"/></a>
 ### 7. Entity Relationships 
 
 
@@ -211,19 +213,21 @@ sanitise and validate inputs to maintain data integrity
 code commenting
 
 --- 
+<a name="erd"/></a>
 ### 8. ERD 
 
 `LocalVore ERD:`  
 ![LocalVore ERD](app/assets/images/MarketplaceERB.png)
 
 --- 
+<a name="schema"/></a>
 ### 9. Database Schema Design 
 
 ``` 
 insert 
 ```
 --- 
-
+<a name="methodology"/></a>
 10. Design Methodology: Normalisation, Data Integrity, Query Efficiency, Eager/Lazy 
 
 Normalisation through schema design
