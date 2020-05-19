@@ -7,9 +7,9 @@ class Listing < ApplicationRecord
 
   # Model relations:
   belongs_to :user
-  belongs_to :category, dependent: :destroy
-  belongs_to :subcategory, dependent: :destroy
-  belongs_to :uom, dependent: :destroy
+  belongs_to :category
+  belongs_to :subcategory
+  belongs_to :uom
   has_many :cart_listings 
   has_many :carts, through: :cart_listings
 

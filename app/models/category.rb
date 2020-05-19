@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :listings, dependent: :destroy
+  has_many :listings
   has_many :subcategories
 
   def self.search_select_options
