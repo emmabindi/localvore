@@ -188,33 +188,48 @@ After waiting >5 minutes for the site to load, I found a content heavy website w
 ## Target Audience
 
 ```
-target aud
+The target audience for LocalVore is adults residing in urban or semi-urban areas who:
 
-Growers: extra yard space, 
-Buyers: small yards/balconies/busy schedules/black thumbs 
-```
+As buyers (fit any of the below criteria)
+- Are local shopping advocates 
+- Seek out fresh, nutritious produce 
+- Would like to reduce their carbon footprint by consuming produce with less 'food miles'
+- Desire more affordable options to supermarket offerings 
+- Would like to meet others in their community and support their gardening endeavours 
+- Are limited by a small yard/balcony/lack of sunshine/black thumb or busy schedule and therefore cannot grow all the fresh produce their diet requires 
+
+As growers (fit any of the below criteria)
+- Are backyard gardeners and invest time and effort into establishing and maintaining a micro-farm
+- Would like to meet others in their community and share the story of how their produce was grown and share their passion 
+- Have excess harvest from their crops and do not wish to waste 
+- Seek to create a profitable ecosystem from their backyard garden 
+
+---
 
 ## Persona's
 
-Persona 1 : Buyer 
-Aged 25 - 35, wants to use a simple app to locate a seller & find the produce they are looking for in less than 5 minutes so they can purchase organic homegrown produce within bike ride distance of their house rather than giving their $ to big supermarkets 
+(Establishing persona's during planning phase enabled me to step into the shoes of the prospective users of the app and consider their lifestyle, values and needs in order to better develop the app)
 
-Persona 2 : Seller 
-Aged 35 - 50, has a larger backyard space and uses it to grow produce however bounty is greater than the household needs. Seeks to share or sell the bounty with neighbours to swap for produce they do not grow or receive funds to reinvest into gardening tools or resources. Seeks connection and purpose through gardening and also meeting their customers and sharing recipe ideas and gardening tips
+Persona 1: Buyer called 'Jed'
+Aged 28, Jed wants to use a simple app to locate a seller & find the produce he is looking for in less than 5 minutes so thhey can purchase organic homegrown produce within bike ride distance of his house rather than giving $ to big supermarkets. Jed is studying a PhD and also works part-time so has very limited time in his schedule to maintain a garden and grow his own produce. Jed also lives in a 2x1 apartment and has just 3sqm of balcony space. 
+
+Persona 2: Seller called 'Jan'
+Aged 45, Jan lives on the same street as Jed, but has a larger backyard space and uses it to grow produce. However the bounty from her garden is greater than her household needs. 
+Jan seeks to share the excess with neighbours and uses the earnings to reinvest into new gardening tools or seedlings. Jan seeks connection and purpose through gardening and enjoys meeting her customers to share recipe ideas and gardening tips.
 
 --- 
 <a name="techstack"/></a>
 ### Tech Stack 
 
-
-
-```
-insert 
-```
+- Ruby (Ruby on Rails): back end 
+- Postgres Database: relational database model
+- ERB: Embedded code to be dynamically rendered into HTML for output
+- HTML: content for output 
+- Bootstrap CSS Framework: front end design 
+- JavaScript: event listener and handler for hovers, map zoom etc
+- Heroku: deployment platform 
 
 *For a list of third party services including gems implemented in the app, please* [Click Here](#thirdpartydetails)  
-
-
 
 --- 
 <a name="projectmgnt"/></a>

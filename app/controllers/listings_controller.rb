@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
     # Search queries are redirected to the index of listings and displays only listings which meet criteria of the search query. 
     # The '.includes' allows search to be performed upon related objects 
     # The index of listings is limited to show a maximum per page as per parameters in listings models 
-    @listings = @q.result.includes(:category, :subcategory).page params[:page]
+    @listings = @q.result.includes(:category, :subcategory, :uom, :user).with_attached_photo.page params[:page]
   end
 
   def show

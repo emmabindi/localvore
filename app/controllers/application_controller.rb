@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   # Setting search query object as @q before every action. Set in this model as search is performed in sidebar which is accessed in multiple views
   def set_query
-    @q = Listing.ransack(params[:q])
+    @q = Listing.with_attached_photo.ransack(params[:q])
   end
 
   protected
