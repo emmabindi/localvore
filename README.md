@@ -22,8 +22,7 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 [Planning & Project Management](#projectmgnt)   
 [Wireframes & Sitemap](#wireframes)  
 [Entity Relationships](#relations)  
-[Entity Relationship Diagram](#erd)   
-[Database Schema Design](#schema)  
+[Entity Relationship Diagram & Database Schema Design](#erd)   
 [App Design Methodology](#methodology)  
 [Third Party Services](#thirdparty)  
 
@@ -31,7 +30,7 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 <a name="links"/></a>
 ## Links  
 
-### Heroku: https://git.heroku.com/radiant-shelf-48298.git
+### Heroku: https://radiant-shelf-48298.herokuapp.com/
 
 ### GitHub: https://github.com/emmabindi/localvore.git
 
@@ -317,38 +316,52 @@ TALK ABOUT 3
 
 ### Model Relations Within the App  
 
-```
-Describe your project’s models in terms of the relationships (active record associations) they have with each other 
-```
+Below is the core models within my app and an explanation of the relationships they have with each other and why I chose to implement them in this manner. 
 
+Models:
+- User
+- Listing
+- Category
+- Subcategory
+- Unit of Measurement
+- Location 
+- Cart 
+- Cart_Listings
+
+**User : Listing**
 The user model has an active record association to Listing model due to the association that a 'User has_many listings' and a 'Listing belongs_to a User'. This association (or relationship) is implemented within the app by the user_id (User record primary key) being referenced in each and every Listing. This represents a one-to-many association. 
 
+**User : Cart**
 The user model also has a relationship with the cart model as a 'User has_many carts' and a 'Cart belongs_to a user'. The user_id (primary key) is referenced in the cart so that every cart will contain a user_id. This is a one-to-many relationship. 
 
-Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the location, child.)
+**User : Location**
+Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. I chose this relationship as I wanted to reflect that every location needed to be associated to a parent which is the User. This is to ensure no location records were stored in the database which were orphaned (without a user) to ensure data integrity by ensuring there are no redundnant records and also that there are no duplications. 
 
-Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing. Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings). 
+Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the child table: location.)
 
+**Listing : Category / Subcategory / U.O.M.**
+Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing. 
+Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings). 
+I implemented these tables and their relationships because I wanted to set in stone the category options available for produce and not have users freehand their inputs while adding produce. 
+This ensures data integrity within the database as there is no data duplication or redundancy. For example, if I did not have the category options set and the 'listing belongs_to a category' relationship, users could create the attribute within category for vegetables in many different ways such as: Vegetables, veggies, vegetables, veg, Veggees, Vegetable etc 
+
+Creating the relationship also allows for searching listings using the attributes from the category/subcategory table attributes which is a key feature of the app.
+
+**Category : Subcategory**
+The Category model (which currently stores the main produce categories of Vegetables, Fruit or Herbs) is a parent of the subcategory model. 
+(The subcategory model currently stores types of produce within each of the subcategories such as Pumpkin(Vegetable), Apple(Fruit), Coriander(Herb) etc)
+
+Each subcategory belongs to a category through the 'Subcategory belongs_to a Category' and 'Category has_many Subcategories" as I wanted to reflect the dependency between the tables. Ie. the subcategory of 'Coriander' belongs to the category of 'Herbs'. 
+
+I have implemented this parent/child association in preparation, to allow for dynamic filtering within the app so that users can select the category of 'Herbs' and the app will dynamically filter the subcategory dropdown list to only show subcategories with the category of herb, which will narrow the users search. 
+(At this stage, the dynamic filtering is in the backlog for implementation in a subsequent release as it requires JavaScript event handling). 
+
+**Cart_Listings : Listings : Cart**
 The Cart model has an association to listings using a 'Has Many Through' association type (many-to-many).
 This relationship is implemented by a separate joining table Cart_Listings. The cart_listing model signifies an association to both listing and cart models as it belongs_to each. 
-A listing 'has_many cart_listings' and 'has_many carts' through cart_listings. This has_many through relationship allows us to access data specific to the relation between the first and second models. This represents that a listing can be in many different carts. 
+
+A listing 'has_many cart_listings' and 'has_many carts' through cart_listings. This 'has_many through' relationship allows us to access data specific to the relation between the first and second models. It also represents that a listing can be in many different carts. 
 The cart model shows the relationship of 'has_many listings through cart_listings'. Which represents that a cart can have multiple listings added to it. 
-
-### Database Relations  
-
-Discuss the database relations to be implemented
-why did i use these tables and relations and how they work
-
-WHY DID YOU USE A MANY TO MANY FOR EG 
-
-
-
-User: 
-  - has many listings 
-
-
-Listings 
-  - belong to a user
 
 --- 
 <a name="erd"/></a>
@@ -421,8 +434,9 @@ Project Marketplace {
     listing_id int
   }
 }
+```
 
-
+```
 Ref: "location"."id" < "users"."location_id"
 
 Ref: "category"."id" < "listings"."category_id"
@@ -439,130 +453,7 @@ Ref: "users"."id" < "carts"."user_id"
 
 Ref: "unit_of_measurement"."id" < "listings"."uom_id"
 ```
---- 
-<a name="schema"/></a>
-### Database Schema Design 
 
-``` 
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "cart_listings", force: :cascade do |t|
-    t.bigint "listing_id", null: false
-    t.bigint "cart_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cart_id"], name: "index_cart_listings_on_cart_id"
-    t.index ["listing_id"], name: "index_cart_listings_on_listing_id"
-  end
-
-  create_table "carts", force: :cascade do |t|
-    t.boolean "completed"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_carts_on_user_id"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "listings", force: :cascade do |t|
-    t.string "title"
-    t.string "photo"
-    t.integer "price"
-    t.integer "qty"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id", null: false
-    t.bigint "uom_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "subcategory_id", null: false
-    t.index ["category_id"], name: "index_listings_on_category_id"
-    t.index ["subcategory_id"], name: "index_listings_on_subcategory_id"
-    t.index ["uom_id"], name: "index_listings_on_uom_id"
-    t.index ["user_id"], name: "index_listings_on_user_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "street_address"
-    t.string "suburb"
-    t.string "city"
-    t.string "state"
-    t.string "country"
-    t.float "longitude"
-    t.float "latitude"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_locations_on_user_id"
-  end
-
-  create_table "subcategories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_subcategories_on_category_id"
-  end
-
-  create_table "uoms", force: :cascade do |t|
-    t.string "unit"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "surname"
-    t.string "profile_photo"
-    t.text "bio"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cart_listings", "carts"
-  add_foreign_key "cart_listings", "listings"
-  add_foreign_key "carts", "users"
-  add_foreign_key "listings", "categories"
-  add_foreign_key "listings", "subcategories"
-  add_foreign_key "listings", "uoms"
-  add_foreign_key "listings", "users"
-  add_foreign_key "locations", "users"
-  add_foreign_key "subcategories", "categories"
-end
-
-```
 --- 
 <a name="methodology"/></a>
 ## App Design Methodology:  
@@ -618,34 +509,4 @@ THE END 🌱 Thank you!
 ```
 ---
 
-PowerPoint Info: 
-
-Learnings / Challenges 
-- extensive use of git branching to develop features before merging into master file 
-- nested attributes 
-- customisation of devise and sanitizer permissions 
-- rspec / TDD for models User and Listing
-- seeding: attaching individual images to listings 
-- using a new gem ransack 
-- jquery upgrade broke my hamburger menu 
-- cart implementation
-- use of Stripe and webhooks for first time (ultrahook api)
-- use of Google Maps API, MapBox and Leaflet javascript library - learning to understand and debug new types of errors
-- Heroku deployment - database reset and familiarity with new commands 
-
-Points 
-- use of partials to ensure code is dry: image-logic partial to handle the conditional treatment of whether photo is uploaded and if not, to display a default sketch image - affects index and show views 
-- use of form partial 
-- use of nav partial 
-
-Backlog & Optimisations: 
-- Qty function 
-- Email for order confirmation 
-- Messaging within app between growers & buyers
-- Shopping Cart bugs: currently sellers can purchase their own produce, items still display once sold, 
-- Map: markers to link to the grower profile
-- Enable swap function through barter system with tokens rather than currency 
-- Enable share of produce for free (no payment transaction but order still processed)
-- Allow growers to re-use listings by toggling if the item is available or not available depending on harvest dates
-- Allow buyers to view order history 
 </div>
