@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # get 'location/index'
-  # get 'location/show'
   get '/location', to: "location#index"
   get '/location/:id', to: "location#show"
   get 'welcome/index'
