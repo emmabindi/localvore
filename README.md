@@ -327,32 +327,12 @@ The user model also has a relationship with the cart model as a 'User has_many c
 
 Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the location, child.)
 
-Listing model 
+Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing. Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings). 
 
-Carts 
-
-
-User has one attached profile_photo 
-
-Models: 
-- Ability
-- Application Record
-- Cart Listing
-- Cart 
-- Category
-- Listing 
-- Location
-- Subcategory
-- UOM 
-- User 
-- View: is a devise model used 
-
-
-
-
-
-
-
+The Cart model has an association to listings using a 'Has Many Through' association type (many-to-many).
+This relationship is implemented by a separate joining table Cart_Listings. The cart_listing model signifies an association to both listing and cart models as it belongs_to each. 
+A listing 'has_many cart_listings' and 'has_many carts' through cart_listings. This has_many through relationship allows us to access data specific to the relation between the first and second models. This represents that a listing can be in many different carts. 
+The cart model shows the relationship of 'has_many listings through cart_listings'. Which represents that a cart can have multiple listings added to it. 
 
 ### Database Relations  
 
