@@ -1,3 +1,4 @@
+# The base product of this marketplace, can be created and purchased by all users 
 class Listing < ApplicationRecord
   # Input field validations:
   validates :title, presence: true
@@ -21,5 +22,6 @@ class Listing < ApplicationRecord
     photo.attached? ? photo : 'fresh.png'
   end
 
+  # Configuration for pagination to ensure maximum of 8 listing appear per index page:
   self.per_page = 8
 end

@@ -1,13 +1,9 @@
 class Subcategory < ApplicationRecord
+  # Model relations:
   has_many :listings, dependent: :destroy
   belongs_to :category
 
-  # def self.select_options
-  #   Subcategory.order("name").collect do |subcat |
-  #     [subcat.name, subcat.id]
-  #   end
-  # end
-
+  # Set the search options for drop down selections in forms:
   def self.search_select_options
     subcategory_list = Subcategory.all.collect do |subcat|
       [subcat.name, subcat.name]
