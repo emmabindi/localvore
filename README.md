@@ -1,5 +1,7 @@
 <div style="text-align: justify"> 
+
 --- 
+
 # LocalVore
 *“One who eats only locally-grown foods”*
 
@@ -46,12 +48,11 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 ### Logins
 
 Email  | Password |   
-------------: | :-------:| ---   
-
-e@gmail.com | `111111` |    
-l@gmail.com | `111111` |   
-b@gmail.com | `111111` |   
-j@gmail.com | `111111` |   
+| ------------ | :-------|    
+| e@gmail.com | `111111` 
+| l@gmail.com | `111111`   
+| b@gmail.com | `111111`   
+| j@gmail.com | `111111`   
 
 
 ---
@@ -62,21 +63,9 @@ LocalVore was created to provide a platform that easily connects home gardeners 
 
 This platform allows growers to establish a profitable ecosystem for their gardening endeavours, reduces waste and gives those in the community a healthier, more affordable and eco friendly alternative to sourcing their fresh food. 
 
-LocalVore mission statement: 
+*LocalVore mission statement:* 
+
 `Building local community, reducing food waste & eating better, for less.`
-
-```
-Purpose: Problem I am solving?   
-
-Connecting communities so users can source locally grown fresh produce and growers can share excess produce from their bounty 
-Increasing biodiversity (not every grower needs to plant the same as Bob can grow eggplants and Jane can grow tomatos according to their space)
-slow food - high nutritional value as little time from soil to table 
-Less travel = better eco footprint
-More likely organic
-Less waste and plastic packaging 
-Small yards / little time / different harvest schedules 
-Swap without use of money … 
-```
 
 **Benefits of LocalVore:** 
 
@@ -100,9 +89,11 @@ Before commencing development I undertook a market analysis to verify the existe
 
 In Australia, I identified several existing platforms however found they did not meet my expectations or have widespread use:  
 
-- **Local Harvest:** a non-user friendly website listing locations for visitors to locate farm grown or locally sourced products. These listings are for companies not individuals, therefore does not provide a marketplace for individuals to trade amongst each other
+- **Local Harvest:**   
+A non-user friendly website listing locations for visitors to locate farm grown or locally sourced products. These listings are for companies not individuals, therefore does not provide a marketplace for individuals to trade amongst each other
 
-- **Crop Swap:** after I waited 10 minutes for the site to load, I found a content heavy website which led me to a page with location links. Unfortunately when I followed the link to join a swap community in my area (Melbourne), it led me to a FaceBook group. This is problemtic for me as a non-Facebook user furthermore use of FaceBook group to post listings does not provide search or filtering functionality nor a secure third party payment method. 
+- **Crop Swap:**   
+After waiting >5 minutes for the site to load, I found a content heavy website which led me to a page with location links. Unfortunately when I followed the link to join a swap community in my area (Melbourne), it led me to a FaceBook group. This is problemtic for me as a non-Facebook user furthermore use of FaceBook group to post listings does not provide search or filtering functionality nor a secure third party payment method. 
 
 
 ---
@@ -173,29 +164,24 @@ In Australia, I identified several existing platforms however found they did not
 
 ### Growers 
 - As a grower, I want to create my profile to display information about me and my growing practises and my values
-- As a grower looking to sell or share my produce, I want to share as much detail about my produce such as photos, description, quantity etc 
-- As a grower, I want to be paid by cash or through my bank account or share my bounty for free 
-- As a grower, I want to organise my listings according to category and type and include filters for features such as organically grown items 
+- As a grower looking to sell or share my produce, I want to provide as much detail as possible about my produce including a photo, description, measurement, quantity etc 
 - As a grower, I want to set a price for my produce 
-- As a grower, I want to answer questions about my produce by allowing buyers to message me 
-<!-- - As a grower I want to be able to re-use listings and toggle if the item is available or not available depending on harvest days  -->
-- As a grower I want to view my sales history 
+- As a grower I want to edit my produce listings to adjust pricing, details or correct errors in the listing 
+- As a grower I want to have the ability to delete any of my listings if needed 
+- As a grower I want to be able to add a new produce listing without a photo and be able to upload that photo at a later time
+- As a grower, I want to receive payment using a secure and cashless gateway, with minimum commission withheld  
+- As a grower, I want to organise my listings according to category and type and include keywords in the description for search filtering of features such as 'organic'
+- As a grower I want to update my personal profile including profile photo and home address for produce collection 
 
 ### Buyers 
 - As a buyer, I want to easily find the produce I am searching for using keywords and category filtering
-- As a buyer I want to know the distance between myself and the grower to ensure I am within bike riding distance  FILTER BY LOCATION 
-- As a buyer, I want to know the details of the produce 
+- As a buyer I want to know the distance between myself and the grower to ensure I am within bike riding distance using filtering my location of suburb 
+- As a buyer I want to see produce listing locations in a map view to determine if produce is easily accessible for me to collect 
+- As a buyer, I want to know the details of the produce including photo, measurement and price
 - As a buyer, I want to be able to view the growers profile and get to know their growing procedures 
-- As a buyer, I want to be able to select the item for purchasing including the quantity needed and add it to a shopping basket
-- As a buyer I want to be able to view produce listings of a grower (so that I can buy as much as possible from one grower) FILTER BY GROWER
-- As a buyer I want to be able to message a seller and offer trade or arrange pickup 
-- As a buyer I want to be able to pay for my shopping cart and complete a transaction 
-- As a buyer I want to see my order history 
-
-
-```fix
-option to settle a shopping cart by trade / swap instead of 
-```
+- As a buyer I want to be able to lookup a particular grower and see a summary of all their listings (so that I can buy as much as possible from one grower) 
+- As a buyer, I want to be able to select the item for purchasing and add it to a shopping basket where multiple items can be combined 
+- As a buyer I want to be able to pay for my shopping cart securely and complete a transaction 
 
 --- 
 <a name="targetaudience"/></a>
@@ -575,26 +561,27 @@ Functionality enhanced through use of third party services (refer to listing bel
 <a name="thirdpartydetails"/></a>
 ## Third Party Services
 
-Third Party Service  | Purpose & Function | 
---------------------- | :-----------------------------------------------------------------------: | :-----
+| Third Party Service  | Purpose & Function                                        | 
+| -------------------- | :----------------------------------------- | 
+| **Rspec-rails** | Testing tool implemented with the use of behaviour-driven development in the creation of the models within this app (Ruby Gem) 
+| **Bootstrap** | HTml, CSS and JavaScript library used to implement styling across the app in particular styling of components such as nav bar, buttons, responsive hamburger menu, card layouts and the footer 
+| **Devise** | Authentication solution to implement user accounts. Incorporates user registrations, database authentication with password storage, account recovery (with password resets), tracks user sign ins (timestamps and IP addresses), expires sessions which have been idle and more
+| **Cancancan** | Authorization library to restrict the access and resources to users of the app. For example, this Ruby Gem is what allows users to have access to edit or delete their produce listings when it is their own listing however not other users   
+| **AWS S3** | Cloud storage of files and images used in and uploaded to the app. This cloud platform supported by Amazon is scalable, reliable and a secure storage method   
+| **Stripe** | A payment software platform implemented in the app to provide buyers and growers with a cashless and secure third party service in which to transact. I chose Stripe as they offer low transaction fees
+| **Ultrahook** | Provided me with a public webhook endpoint to receive realtime information from Stripe such as confirmation of successful payment through Stripe. This public webhook assisted with me using the real time information from Stripe whilst in the development environment using localhost   
+| **Ransack** | A Ruby gem utilised to create simple search forms and filtering to enable users to find produce or filter by location easily  
+| **Rails_12factor** | App not able to access jquery_ujs which assist with delete method working in Heroku, also helps in serving static assets in Heroku   
+| **Will_Paginate** | Ruby gem to implemented pagination for the listings index - this limits the number of images/listings loaded on the index landing page which will increase efficiency once the listings count is high. Allows user to move through pages with links at the bottom of the listings view and provides page count (... Next)  
+| **Sanitize** | Ruby gem which sanitizes html and css inputs (received in from user inputs through fields such as 'title' or 'description' in the add produce listing forms, and strips them of any malicious content) |   
+| **Geocoder** | Gem which converts a given address into longitude and langitude co-ordinates and records this against each location. These co-ordinates can then feed into maps to mark locations 
+| **GoogleMaps API** | This is the API which Geocoder receives it's geocoding data from and allows Gemcoder to execute the conversion from address to co-ordinates on the fly 
+| **MapBox API** | An open source mapping platform to allow map integration within the app (which is displayed through JavaScript)    
+| **Leaflet** | Javascript client side library for displaying maps, used to provide a map view of grower locations so buyers can locate produce in a visual way  
 
-**Rspec-rails** | Testing tool implmeneted with the use of behaviour-driven development in the creation of the models within this app (Ruby Gem) | 
-**Bootstrap** | HTml, CSS and JavaScript library used to implement styling across the app in particular styling of components such as nav bar, buttons, responsive hamburger menu, card layouts and the footer | 
-**Devise** | Authentication solution to implement user accounts. Incorporates user registrations, database authentication with password storage, account recovery (with password resets), tracks user sign ins (timestamps and IP addresses), expires sessions which have been idle and more. |
-**Cancancan** | Authorization library to restrict the access and resources to users of the app. For example, this Ruby Gem is what allows users to have access to edit or delete their produce listings when it is their own listing however not other users. | 
-**AWS S3** | Cloud storage of files and images used in and uploaded to the app. This cloud platform supported by Amazon is scalable, reliable and a secure storage method | 
-**Stripe** | A payment software platform implemented in the app to provide buyers and growers with a cashless and secure third party service in which to transact. I chose Stripe as they offer low transaction fees. | 
-**Ultrahook** | Provided me with a public webhook endpoint to receive realtime information from Stripe such as confirmation of successful payment through Stripe. This public webhook assisted with me using the real time information from Stripe whilst in the development environment using localhost. | 
-**Ransack** | A Ruby gem utilised to create simple search forms and filtering to enable users to find produce or filter by location easily |
-**Rails_12factor** | App not able to access jquery_ujs which assist with delete method working in Heroku, also helps in serving static assets in Heroku | 
-**Will_Paginate** | Ruby gem to implemented pagination for the listings index - this limits the number of images/listings loaded on the index landing page which will increase efficiency once the listings count is high. Allows user to move through pages with links at the bottom of the listings view and provides page count (... Next) | 
-**Sanitize** | Ruby gem which sanitizes html and css inputs (received in from user inputs through fields such as 'title' or 'description' in the add produce listing forms, and strips them of any malicious content) | 
-**Geocoder** | Gem which converts a given address into longitude and langitude co-ordinates and records this against each location. These co-ordinates can then feed into maps to mark locations | 
-**GoogleMaps API** | This is the API which Geocoder receives it's geocoding data from and allows Gemcoder to execute the conversion from address to co-ordinates on the fly |
-**MapBox API** | An open source mapping platform to allow map integration within the app (which is displayed through JavaScript) | 
-**Leaflet** | Javascript client side library for displaying maps, used to provide a map view of grower locations so buyers can locate produce in a visual way | 
-
-
+``` 
+THE END 🌱 Thank you! 
+```
 ---
 
 PowerPoint Info: 
@@ -624,5 +611,7 @@ Backlog & Optimisations:
 - Shopping Cart bugs: currently sellers can purchase their own produce, items still display once sold, 
 - Map: markers to link to the grower profile
 - Enable swap function through barter system with tokens rather than currency 
-
+- Enable share of produce for free (no payment transaction but order still processed)
+- Allow growers to re-use listings by toggling if the item is available or not available depending on harvest dates
+- Allow buyers to view order history 
 </div>
