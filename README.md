@@ -67,23 +67,24 @@ This platform allows growers to establish a profitable ecosystem for their garde
 
 `Building local community, reducing food waste & eating better, for less.`
 
-**Benefits of LocalVore:** 
+| **Benefits of LocalVore:** |
+| ----------------------------------------------------- |  
+| ☑️ Connect people with others in their community   
+| ☑️ Reduce food waste   
+| ☑️ Reduce packaging    
+| ☑️ Access to more affordable fresh produce (cutting out the middle man and supermarkets with high overheads)  
+| ☑️ Increased freshness & taste with reduced transit times   
+| ☑️ High nutritional value as shorter time from soil to table   
+| ☑️ Provide an opportunity for growers to receive income   
+| ☑️ Add variety to the foods we eat   
+| ☑️ Improve food security   
+| ☑️ Help foodies find seasonal food around the corner from their house   
+| ☑️ Connects people with nature, seasons and the story of their food  
+| ☑️ Reduced ecological footprint with lower emissions 'food miles'   
+| ☑️ Secure third party payment system with low transaction fees (Stripe, fees of <3%)  
+|
 
-☑️ Connect people with others in their community   
-☑️ Reduce food waste   
-☑️ Reduce packaging    
-☑️ Access to more affordable fresh produce (cutting out the middle man and supermarkets with high overheads)  
-☑️ Increased freshness & taste with reduced transit times   
-☑️ High nutritional value as shorter time from soil to table   
-☑️ Provide an opportunity for growers to receive income   
-☑️ Add variety to the foods we eat   
-☑️ Improve food security   
-☑️ Help foodies find seasonal food around the corner from their house   
-☑️ Connects people with nature, seasons and the story of their food  
-☑️ Reduced ecological footprint with lower emissions 'food miles'   
-☑️ Secure third party payment system with low transaction fees (Stripe, fees of <3%)  
-
-**Market Analysis:** 
+### **Market Analysis:** 
 
 Before commencing development I undertook a market analysis to verify the existence and usability of any apps providing the same solution - to buy/sell/swap home grown produce with buyers in your neighbourhood.   
 
@@ -100,7 +101,7 @@ After waiting >5 minutes for the site to load, I found a content heavy website w
 <a name="overview"/></a>
 ## App Overview 
 
-**Functionality/Features:**
+### **Functionality/Features:**
 - Sign up to become a member, and login for returning members with authentication provided by Devise 
 - Ability for all members to add a new produce listing - specifying a unique title and description, attaching a photo, specifying the price and selecting a unit of measure, category and type  
 - Ability to edit profile including biography, profile photo or contact details such as home address   
@@ -112,7 +113,7 @@ After waiting >5 minutes for the site to load, I found a content heavy website w
 - Shopping cart functionality which allows buyers to purchase multiple items and complete checkout with secure payment using Stripe   
 
 
-**Screenshots:**
+### **Screenshots:**
 
 `Welcome Page - Guests:`   
 ![Welcome Page - Guests](app/assets/images/screenshots/Welcome-Not-Signed-In.png)
@@ -143,9 +144,6 @@ After waiting >5 minutes for the site to load, I found a content heavy website w
 
 `Login:`   
 ![Login](app/assets/images/screenshots/Login.png)
-
-`Update User Profile:`   
-![Update User Profile](app/assets/images/screenshots/Update-User.png)
 
 `Add New Listing:`   
 ![Add New Listing](app/assets/images/screenshots/Add-New-Listing.png)  
@@ -187,8 +185,8 @@ After waiting >5 minutes for the site to load, I found a content heavy website w
 <a name="targetaudience"/></a>
 ## Target Audience
 
-```
-The target audience for LocalVore is adults residing in urban or semi-urban areas who:
+
+The target audience for LocalVore is adults residing in urban or semi-urban areas with access to internet, who:
 
 As buyers (fit any of the below criteria)
 - Are local shopping advocates 
@@ -208,7 +206,7 @@ As growers (fit any of the below criteria)
 
 ## Persona's
 
-(Establishing persona's during planning phase enabled me to step into the shoes of the prospective users of the app and consider their lifestyle, values and needs in order to better develop the app)
+*(Establishing persona's during planning phase enabled me to step into the shoes of the prospective users of the app and consider their lifestyle, values and needs in order to better develop the app)*
 
 Persona 1: Buyer called 'Jed'
 Aged 28, Jed wants to use a simple app to locate a seller & find the produce he is looking for in less than 5 minutes so thhey can purchase organic homegrown produce within bike ride distance of his house rather than giving $ to big supermarkets. Jed is studying a PhD and also works part-time so has very limited time in his schedule to maintain a garden and grow his own produce. Jed also lives in a 2x1 apartment and has just 3sqm of balcony space. 
@@ -223,11 +221,12 @@ Jan seeks to share the excess with neighbours and uses the earnings to reinvest 
 
 - Ruby (Ruby on Rails): back end 
 - Postgres Database: relational database model
-- ERB: Embedded code to be dynamically rendered into HTML for output
+- ERB: Embedded code dynamically rendered into HTML for output
 - HTML: content for output 
 - Bootstrap CSS Framework: front end design 
 - JavaScript: event listener and handler for hovers, map zoom etc
 - Heroku: deployment platform 
+- Git: version control (>150 commits & 11 branches)
 
 *For a list of third party services including gems implemented in the app, please* [Click Here](#thirdpartydetails)  
 
@@ -237,11 +236,30 @@ Jan seeks to share the excess with neighbours and uses the earnings to reinvest 
 
 Describe the way tasks are planned and tracked in your project
 
+At the commencement of this project, I dedicated an entire day to planning and design. In this stage I developed the Minimum Viable Produce for the app which I believe I could achieve in the given timeframe. I then delegated any features which were not a part of the MVP into a 'Would be Nice' list toensure clarity on my goals. 
+
+Once I had established my MVP for the app and created user stories, a sitemap and wireframes, I then set milestones according to those feature requirements onto Trello lists. 
+As milestones were reached and tasks completed I checked them off within Trello as well as dragging the milestone card to the 'Completed' list. 
+
 MVP   
 Trello   
 Hand Written   
 Tracking / readjusting 
 
+`Trello Board - Example 1:`   
+![Trello Board - Example 1](app/assets/images/trello-snips/Trello1.png)
+
+`Trello Board - Example 2:`   
+![Trello Board - Example 2](app/assets/images/trello-snips/Trello2.png)
+
+`Trello Board - Example 5:`   
+![Trello Board - Example 5](app/assets/images/trello-snips/Trello5.png)
+
+`Trello Board - Example 6:`   
+![Trello Board - Example 6](app/assets/images/trello-snips/Trello6.png)
+
+`Weekly Timeline Map:`   
+![Timeline Handwritten](app/assets/images/trello-snips/planning-daily-outline.JPG)
 
 
 --- 
