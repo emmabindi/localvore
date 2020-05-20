@@ -15,4 +15,13 @@ class LocationController < ApplicationController
       render json: {data: [@location.latitude, @location.longitude], center: [@location.latitude, @location.longitude]}
     end
   end
+
+  def search
+    location = Geocoder.search(params[:search])[0].data["geometry"]["location"]
+    @locations = Location.all 
+    data = @locations.map do |location|
+      [location.latitude, location.longitude]
+    end
+    render json: {data: data, center: [location["lat"], location["lng"]]}
+  end
 end
