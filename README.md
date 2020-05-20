@@ -11,19 +11,19 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 ## Table of Contents: 
 
 [Links](#links)  
-[Setup Instructions & Logins](#setup)
-[Problem](#problem) 
-[App Overview](#overview)
-[User Stories](#userstories)
-[Target Audience](#targetaudience) 
-[Tech Stack](#techstack) **
-[Planning & Project Management](#projectmgnt) 
-[Wireframes & Sitemap](#wireframes)
-[Entity Relationships](#relations)
-[Entity Relationship Diagram](#erd) 
-[Database Schema Design](#schema)
-[App Design Methodology](#methodology)
-[Third Party Services](#thirdparty)
+[Setup Instructions & Logins](#setup)  
+[Problem](#problem)   
+[App Overview](#overview)  
+[User Stories](#userstories)  
+[Target Audience](#targetaudience)   
+[Tech Stack](#techstack)   
+[Planning & Project Management](#projectmgnt)   
+[Wireframes & Sitemap](#wireframes)  
+[Entity Relationships](#relations)  
+[Entity Relationship Diagram](#erd)   
+[Database Schema Design](#schema)  
+[App Design Methodology](#methodology)  
+[Third Party Services](#thirdparty)  
 
 --- 
 <a name="links"/></a>
@@ -58,6 +58,14 @@ j@gmail.com | `111111` |
 <a name="problem"/></a>
 ## Problem & Purpose
 
+LocalVore was created to provide a platform that easily connects home gardeners who have a bounty of fresh produce, with people in their community wanting fresh, local and nutritious produce. 
+
+This platform allows growers to establish a profitable ecosystem for their gardening endeavours, reduces waste and gives those in the community a healthier, more affordable and eco friendly alternative to sourcing their fresh food. 
+
+LocalVore mission statement: 
+`Building local community, reducing food waste & eating better, for less.`
+
+```
 Purpose: Problem I am solving?   
 
 Connecting communities so users can source locally grown fresh produce and growers can share excess produce from their bounty 
@@ -68,35 +76,91 @@ More likely organic
 Less waste and plastic packaging 
 Small yards / little time / different harvest schedules 
 Swap without use of money … 
+```
 
-Benefits of LocalVore: 
+**Benefits of LocalVore:** 
 
-☑️ Connect communities
-☑️ Reduce food waste 
-☑️ Access to more affordable fresh produce (cutting out the middle man and supermarkets with high overheads)
-☑️ Increased freshness with reduced transit times = tastes better & more nutritious
-☑️ Provide an opportunity for growers to receive income 
-☑️ Add variety to the foods we eat 
-☑️ Improve food security 
-☑️ Help foodies find seasonal food around the corner from their house 
-☑️ Connects people with nature, seasons and the story of their food
-☑️ Reduced ecological footprint with lower emissions 'food miles' 
+☑️ Connect people with others in their community   
+☑️ Reduce food waste   
+☑️ Reduce packaging    
+☑️ Access to more affordable fresh produce (cutting out the middle man and supermarkets with high overheads)  
+☑️ Increased freshness & taste with reduced transit times   
+☑️ High nutritional value as shorter time from soil to table   
+☑️ Provide an opportunity for growers to receive income   
+☑️ Add variety to the foods we eat   
+☑️ Improve food security   
+☑️ Help foodies find seasonal food around the corner from their house   
+☑️ Connects people with nature, seasons and the story of their food  
+☑️ Reduced ecological footprint with lower emissions 'food miles'   
+☑️ Secure third party payment system with low transaction fees (Stripe, fees of <3%)  
 
-Market Analysis: 
+**Market Analysis:** 
 
-Before commencing development I undertook a market analysis to verify the existence and usability of any apps providing the same solution - to buy/sell/swap home grown produce. 
-In Australia, I identified several existing platforms however found they did not meet my expectations or have widespread use: 
-- Local Harvest: a non-user friendly website listing locations for visitors to locate farm grown or locally sourced products. These listings are for companies not individuals, therefore does not provide a marketplace for individuals to trade amongst each other
-- Crop Swap: after I waited 10 minutes for the site to load, I found a content heavy website which led me to a page with location links. Unfortunately when I followed the link for my area (Melbourne), to join a swap community, it led me to a FaceBook group. This is problemtic for me as a non-Facebook user furthermore use of FaceBook group to post listings does not provide search or filtering functionality nor a safe third party payment method 
+Before commencing development I undertook a market analysis to verify the existence and usability of any apps providing the same solution - to buy/sell/swap home grown produce with buyers in your neighbourhood.   
+
+In Australia, I identified several existing platforms however found they did not meet my expectations or have widespread use:  
+
+- **Local Harvest:** a non-user friendly website listing locations for visitors to locate farm grown or locally sourced products. These listings are for companies not individuals, therefore does not provide a marketplace for individuals to trade amongst each other
+
+- **Crop Swap:** after I waited 10 minutes for the site to load, I found a content heavy website which led me to a page with location links. Unfortunately when I followed the link to join a swap community in my area (Melbourne), it led me to a FaceBook group. This is problemtic for me as a non-Facebook user furthermore use of FaceBook group to post listings does not provide search or filtering functionality nor a secure third party payment method. 
 
 
 ---
 <a name="overview"/></a>
 ## App Overview 
 
-Functionality/Features:
+**Functionality/Features:**
+- Sign up to become a member, and login for returning members with authentication provided by Devise 
+- Ability for all members to add a new produce listing - specifying a unique title and description, attaching a photo, specifying the price and selecting a unit of measure, category and type  
+- Ability to edit profile including biography, profile photo or contact details such as home address   
+- Authorisation restrictions which allow guests to view produce and grower profiles however not transact until they have become a member   
+- Growers are also able to edit or delete their existing listings  
+- Searching & filtering to locate produce with various options including category/subcategory of produce, grower location or keywords such as 'organic'   
+- Sorting produce listings by alphabetical order (on title) or price ascending / descending  
+- Ability to look up grower profile to view their biography, photo and a summary of their listings   
+- Shopping cart functionality which allows buyers to purchase multiple items and complete checkout with secure payment using Stripe   
 
-Screenshots: 
+
+**Screenshots:**
+
+`Welcome Page - Guests:`   
+![Welcome Page - Guests](app/assets/images/screenshots/Welcome-Not-Signed-In.png)
+
+`Welcome Page - Member Signed In:`   
+![Welcome Page - Member Signed In](app/assets/images/screenshots/Welcome-Signed-In.png)
+
+`Produce - View All:`   
+![Produce - View All](app/assets/images/screenshots/Produce-Index.png)
+
+`Produce - Show:`   
+![Produce - Show](app/assets/images/screenshots/Produce-Index-Filter.png)
+
+`View Grower Profile:`   
+![View Grower Profile](app/assets/images/screenshots/Grower-Show.png)
+
+`View Cart:`   
+![View Cart](app/assets/images/screenshots/Cart-Index.png)
+
+`Payment Checkout - Stripe:`   
+![Payment Checkout - Stripe](app/assets/images/screenshots/Stripe.png)
+
+`Payment Success - Completed Cart:`   
+![Payment Success - Completed Cart](app/assets/images/screenshots/Payment-Success.png)
+
+`Sign Up:`   
+![Sign Up](app/assets/images/screenshots/Sign-Up.png)
+
+`Login:`   
+![Login](app/assets/images/screenshots/Login.png)
+
+`Update User Profile:`   
+![Update User Profile](app/assets/images/screenshots/Update-User.png)
+
+`Add New Listing:`   
+![Add New Listing](app/assets/images/screenshots/Add-New-Listing.png)  
+
+`Edit Listing:`   
+![Edit Listing](app/assets/images/screenshots/Edit-Listing.png)   
 
 
 --- 
@@ -104,11 +168,11 @@ Screenshots:
 ## User Stories 
 
 ### Guest
-- As a guest to the marketplace, I want to search products, view listings and growers without having to sign up 
+- As a guest to the marketplace, I want to search for produce, view listings and grower profiles without having to sign up 
 - As a guest, I want to sign up securely and become a buyer or sell my produce as a grower (or both) 
 
 ### Growers 
-- As a grower, I want to create my profile to display information about me and my growing practises and also share my values 
+- As a grower, I want to create my profile to display information about me and my growing practises and my values
 - As a grower looking to sell or share my produce, I want to share as much detail about my produce such as photos, description, quantity etc 
 - As a grower, I want to be paid by cash or through my bank account or share my bounty for free 
 - As a grower, I want to organise my listings according to category and type and include filters for features such as organically grown items 
@@ -139,6 +203,9 @@ option to settle a shopping cart by trade / swap instead of
 
 ```
 target aud
+
+Growers: extra yard space, 
+Buyers: small yards/balconies/busy schedules/black thumbs 
 ```
 
 ## Persona's
@@ -158,6 +225,10 @@ Aged 35 - 50, has a larger backyard space and uses it to grow produce however bo
 ```
 insert 
 ```
+
+*For a list of third party services including gems implemented in the app, please* [Click Here](#thirdpartydetails)  
+
+
 
 --- 
 <a name="projectmgnt"/></a>
@@ -210,20 +281,33 @@ it means talking about how your app is using inheritance to get the rails higher
 
 for instance your model files are inheriting from ApplicationRecord (Active Record)
 
-so you'd explain how by inheriting from active record you get heaps of extra methods
+so you'd explain how by inheriting from active record you get heaps of extra methods. that then allow you to do CRUD actions on your db
 
-that then allow you to do CRUD actions on your db
 
-you could also talk about ApplicationController
-or talk about erb
+** one example of a higher level comp in my app is Active Record. 
+Active Record is a module with the base class inside of it that gives our models methods that allow us to manipulate data . Essentially Active Record can be called on our models to CRUD records. In the background it is executing SQL that does this record manipulation  ** 
+
+There is also: 
+Active Controller 
+Active View - erb, template/partial/layout differences 
+Active Storage - will also be a module that allows me to upload files in a simple manner 
+Talk about how active storage can connect to AWS S3 (or other services)
+
+TALK ABOUT 3 
 
 
 ---- 
 Describe your project’s models in terms of the relationships (active record associations) they have with each other 
 
+- has many through 
+
+
 --- 
 
 Discuss the database relations to be implemented
+why did i use these tables and relations and how they work
+
+WHY DID YOU USE A MANY TO MANY FOR EG 
 
 --- 
 
@@ -255,6 +339,88 @@ OrdersListing join table?  -->
 `LocalVore ERD:`  
 ![LocalVore ERD](app/assets/images/MarketplaceERB.png)
 
+```
+Project Marketplace {
+  Table users {
+    id bigint PK
+    first_name string 
+    surname string
+    email string
+    password string
+    bio text
+    profile_photo string
+    location_id int
+  }
+  
+  Table listings {
+    id bigint PK
+    title string 
+    category_id int 
+    subcategory_id int 
+    uom_id int
+    price int 
+    quantity int
+    photo string
+    description text 
+    user_id int 
+  }
+  
+  Table category {
+    id bigint PK 
+    name string
+  }
+  
+  Table subcategory {
+    id bigint PK 
+    name string
+  }
+  
+  Table unit_of_measurement {
+    id bigint PK
+    unit string
+  }
+  
+  Table location {
+    id bigint PK
+    longtitude float
+    latitude float
+    street_address string
+    suburb string
+    city string
+    state string
+    country string
+  }
+  
+  Table carts {
+    id bigint PK
+    user_id int
+    completed boolean
+  }
+  
+  Table cart_listings {
+    id bigint PK
+    shopping_cart_id int
+    listing_id int
+  }
+}
+
+
+Ref: "location"."id" < "users"."location_id"
+
+Ref: "category"."id" < "listings"."category_id"
+
+Ref: "listings"."id" < "cart_listings"."listing_id"
+
+Ref: "carts"."id" < "cart_listings"."shopping_cart_id"
+
+Ref: "users"."id" < "listings"."user_id"
+
+Ref: "subcategory"."id" < "listings"."subcategory_id"
+
+Ref: "users"."id" < "carts"."user_id"
+
+Ref: "unit_of_measurement"."id" < "listings"."uom_id"
+```
 --- 
 <a name="schema"/></a>
 ### Database Schema Design 
@@ -406,6 +572,7 @@ Functionality enhanced through use of third party services (refer to listing bel
 
 --- 
 <a name="thirdparty"/></a>
+<a name="thirdpartydetails"/></a>
 ## Third Party Services
 
 3rd Party Service  |  | 
@@ -414,14 +581,17 @@ Functionality enhanced through use of third party services (refer to listing bel
 **Bootstrap** | HTml, CSS and JavaScript library used to implement styling across the app in particular styling of components such as nav bar, buttons, responsive hamburger menu, card layouts and the footer | 
 **Devise** | Authentication solution to implement user accounts. Incorporates user registrations, database authentication with password storage, account recovery (with password resets), tracks user sign ins (timestamps and IP addresses), expires sessions which have been idle and more. |
 **Cancancan** | Authorization library to restrict the access and resources to users of the app. For example, this Ruby Gem is what allows users to have access to edit or delete their produce listings when it is their own listing however not other users. | 
-**Stripe** | What id it, Why did I use it | 
-**Ultrahook** | What id it, Why did I use it | 
-**Ransack** | What id it, Why did I use it | 
+**AWS S3** | Cloud storage of files and images used in and uploaded to the app. This cloud platform supported by Amazon is scalable, reliable and a secure storage method | 
+**Stripe** | A payment software platform implemented in the app to provide buyers and growers with a cashless and secure third party service in which to transact. I chose Stripe as they offer low transaction fees. | 
+**Ultrahook** | Provided me with a public webhook endpoint to receive realtime information from Stripe such as confirmation of successful payment through Stripe. This public webhook assisted with me using the real time information from Stripe whilst in the development environment using localhost. | 
+**Ransack** | A Ruby gem utilised to create simple search forms and filtering to enable users to find produce or filter by location easily |
 **Rails_12factor** | App not able to access jquery_ujs which assist with delete method working in Heroku, also helps in serving static assets in Heroku | 
 **Will_Paginate** | Ruby gem to implemented pagination for the listings index - this limits the number of images/listings loaded on the index landing page which will increase efficiency once the listings count is high. Allows user to move through pages with links at the bottom of the listings view and provides page count (... Next) | 
-**Geocoder** | Gem | 
-**Leaflet** | Javascript client side library for displaying maps | 
 **Sanitize** | Ruby gem which sanitizes html and css inputs (received in from user inputs through fields such as 'title' or 'description' in the add produce listing forms, and strips them of any malicious content) | 
+**Geocoder** | Gem which converts a given address into longitude and langitude co-ordinates and records this against each location. These co-ordinates can then feed into maps to mark locations | 
+**GoogleMaps API** | This is the API which Geocoder receives it's geocoding data from and allows Gemcoder to execute the conversion from address to co-ordinates on the fly |
+**MapBox API** | An open source mapping platform to allow map integration within the app (which is displayed through JavaScript) | 
+**Leaflet** | Javascript client side library for displaying maps, used to provide a map view of grower locations so buyers can locate produce in a visual way | 
 
 
 ---
