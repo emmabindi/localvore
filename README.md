@@ -575,8 +575,9 @@ Functionality enhanced through use of third party services (refer to listing bel
 <a name="thirdpartydetails"/></a>
 ## Third Party Services
 
-3rd Party Service  |  | 
------------------- | :--------------------------------------------------: | :-------
+Third Party Service  | Purpose & Function | 
+--------------------- | :-----------------------------------------------------------------------: | :-----
+
 **Rspec-rails** | Testing tool implmeneted with the use of behaviour-driven development in the creation of the models within this app (Ruby Gem) | 
 **Bootstrap** | HTml, CSS and JavaScript library used to implement styling across the app in particular styling of components such as nav bar, buttons, responsive hamburger menu, card layouts and the footer | 
 **Devise** | Authentication solution to implement user accounts. Incorporates user registrations, database authentication with password storage, account recovery (with password resets), tracks user sign ins (timestamps and IP addresses), expires sessions which have been idle and more. |
