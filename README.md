@@ -234,17 +234,17 @@ Jan seeks to share the excess with neighbours and uses the earnings to reinvest 
 <a name="projectmgnt"/></a>
 ### Planning & Project Management 
 
-Describe the way tasks are planned and tracked in your project
-
-At the commencement of this project, I dedicated an entire day to planning and design. In this stage I developed the Minimum Viable Produce for the app which I believe I could achieve in the given timeframe. I then delegated any features which were not a part of the MVP into a 'Would be Nice' list toensure clarity on my goals. 
+At the commencement of this project, I dedicated an entire day to planning and design. In this stage I decided on the Minimum Viable Product for the project which I believed I could achieve in the given timeframe. I then delegated any features which were not a part of the MVP into a 'Would be Nice' list to create clarity on the tasks required. 
 
 Once I had established my MVP for the app and created user stories, a sitemap and wireframes, I then set milestones according to those feature requirements onto Trello lists. 
 As milestones were reached and tasks completed I checked them off within Trello as well as dragging the milestone card to the 'Completed' list. 
 
-MVP   
-Trello   
-Hand Written   
-Tracking / readjusting 
+I had an overarching outline mapped out by each day within the fortnight (pictured below) and using these timeframe estimates could be comfortable ensuring MVP would be attained well before the delivery date. 
+
+Each day I would commence with reviewing the milestones outstanding, and allocating tasks into my 'Today' list on Trello, matching it off against my hand written outline. At the end of every day I reviewed my progress, marked off any tasks achieved and re-assessed my progress. 
+
+In developing this app, I applied the Agile project management concepts to my approach. In doing this I emphasized building functionality incrementally - in bite size chunks. 
+With each new feature implemented, I carried out testing and utilised source control. I would record any bugs as tasks and place them in the backlog. 
 
 `Trello Board - Example 1:`   
 ![Trello Board - Example 1](app/assets/images/trello-snips/Trello1.png)
@@ -264,7 +264,7 @@ Tracking / readjusting
 
 --- 
 <a name="wireframes"/></a>
-### Wireframes & Sitemap
+## Wireframes & Sitemap
 
 `Site Map:`   
 ![Site Map](/app/assets/images/wireframes/Sitemap.png)
@@ -289,12 +289,11 @@ Tracking / readjusting
 
 ---
 <a name="relations"/></a>
-### Entity Relationships 
+## Entity Relationships 
 
-
---- 
-
-Explain the different high-level components (abstractions) in your App
+### High-Level Components of the App
+```
+Explain the different high-level components (abstractions) in your App 
 
 it means talking about how your app is using inheritance to get the rails higher level components
 
@@ -313,43 +312,63 @@ Active Storage - will also be a module that allows me to upload files in a simpl
 Talk about how active storage can connect to AWS S3 (or other services)
 
 TALK ABOUT 3 
+```
 
 
----- 
+### Model Relations Within the App  
+
+```
 Describe your project’s models in terms of the relationships (active record associations) they have with each other 
+```
 
-- has many through 
+The user model has an active record association to Listing model due to the association that a 'User has_many listings' and a 'Listing belongs_to a User'. This association (or relationship) is implemented within the app by the user_id (User record primary key) being referenced in each and every Listing. This represents a one-to-many association. 
+
+The user model also has a relationship with the cart model as a 'User has_many carts' and a 'Cart belongs_to a user'. The user_id (primary key) is referenced in the cart so that every cart will contain a user_id. This is a one-to-many relationship. 
+
+Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the location, child.)
+
+Listing model 
+
+Carts 
 
 
---- 
+User has one attached profile_photo 
+
+Models: 
+- Ability
+- Application Record
+- Cart Listing
+- Cart 
+- Category
+- Listing 
+- Location
+- Subcategory
+- UOM 
+- User 
+- View: is a devise model used 
+
+
+
+
+
+
+
+
+### Database Relations  
 
 Discuss the database relations to be implemented
 why did i use these tables and relations and how they work
 
 WHY DID YOU USE A MANY TO MANY FOR EG 
 
---- 
 
-Users: has many listings, has one cart, has one bio, has one profile_photo, has one location, has many conversations?, has many orders 
 
-Listings: belong to a user, has_one_attached :photo, enum (avail/not) has_many cart_listings, has many carts through cart_listings, 
-<!-- price / description / keywords / cat / type / qty -->
+User: 
+  - has many listings 
 
-Quantity: has many listings
-Category: has many listings
-Type: has many listings
 
-Cart: has many cart_listings, has many listings through cart_listing, belongs to User
-Cart_listing (joining table) belongs to listing, belongs to cart
-
-Location: has one address ...  belongs to a user 
-
-Conversations: have many messages, 
-Messages - belong to a conversation, belong to a user 
-User_conversation - belongs to user, belogns to conversation (JONING TABLE)
-
-<!-- Order: belongs to user, 
-OrdersListing join table?  -->
+Listings 
+  - belong to a user
 
 --- 
 <a name="erd"/></a>
@@ -585,6 +604,8 @@ Git branching
 Postgresql DB 
 
 Testing 
+
+
 
 Functionality enhanced through use of third party services (refer to listing below for details)
 --- 
