@@ -23,6 +23,7 @@ class CartsController < ApplicationController
   end
 
   private 
+  # Calculate total price of all produce within the cart 
   def cart_total
     sum = 0 
     @cart.each do |cart_item|

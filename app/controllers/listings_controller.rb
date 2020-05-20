@@ -4,7 +4,9 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @q = Listing.ransack(params[:q])
+    # Search queries are redirected to the index of listings and displays only listings which meet criteria of the search query. 
+    # The '.includes' allows search to be performed upon related objects 
+    # The index of listings is limited to show a maximum per page as per parameters in listings models 
     @listings = @q.result.includes(:category, :subcategory).page params[:page]
   end
 
@@ -29,30 +31,23 @@ class ListingsController < ApplicationController
   end
 
   def update
-    # if @listing.update(listing_params)
-    # redirect_to listings_path(@listing.id)
-    # else
-    #   render :edit
-    # end
     @listing.update(listing_params)
-
     redirect_to @listing
   end
 
   def destroy
     @listing.destroy
-
     redirect_to listings_path
   end
 
   private 
-
+  # Sets list of parameters that are allowed for listings
   def listing_params
     params.require(:listing).permit(:title, :photo, :price, :qty, :description, :uom_id, :category_id, :subcategory_id)
   end
 
+  # Gets the listing using the listing_id and stores in a variable 
   def find_listing
     @listing = Listing.find(params[:id])
   end
-
 end
