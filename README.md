@@ -59,7 +59,7 @@ Email  | Password |
 <a name="problem"/></a>
 ## Problem & Purpose
 
-LocalVore was created to provide a platform that easily connects home gardeners who have a bounty of fresh produce, with people in their community wanting fresh, local and nutritious produce. 
+LocalVore was created to provide a platform that easily connects home gardeners who have a bounty of fresh produce, with people in their community seeking fresh, local and nutritious produce. 
 
 This platform allows growers to establish a profitable ecosystem for their gardening endeavours, reduces waste and gives those in the community a healthier, more affordable and eco friendly alternative to sourcing their fresh food. 
 
