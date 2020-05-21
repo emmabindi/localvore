@@ -21,9 +21,8 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 [Tech Stack](#techstack)   
 [Planning & Project Management](#projectmgnt)   
 [Wireframes & Sitemap](#wireframes)  
+[ERD & Database Schema Design](#erd)   
 [Entity Relationships](#relations)  
-[Entity Relationship Diagram & Database Schema Design](#erd)   
-[App Design Methodology](#methodology)  
 [Third Party Services](#thirdparty)  
 
 --- 
@@ -36,11 +35,12 @@ LocalVore is a two-sided marketplace which enables users to find fresh homegrown
 
 --- 
 <a name="setup"/></a>
-## Setup Instructions  
+## Setup Instructions (Local)
 
 - Clone this repo
 - Bundle install to install all required dependencies
 - Rake db:setup to create local database migrate and seed
+- Enter credentials for Google API & Stripe 
 - Rails s to run the rails server
 - Load http://localhost:3000/ in the browser
 
@@ -80,7 +80,7 @@ This platform allows growers to establish a profitable ecosystem for their garde
 | ☑️ Help foodies find seasonal food around the corner from their house   
 | ☑️ Connects people with nature, seasons and the story of their food  
 | ☑️ Reduced ecological footprint with lower emissions 'food miles'   
-| ☑️ Secure third party payment system with low transaction fees (Stripe, fees of <3%)  
+| ☑️ Secure third party payment system with low transaction fees (Stripe fees < 3%)  
 |
 
 ### **Market Analysis:** 
@@ -286,86 +286,9 @@ With each new feature implemented, I carried out testing and utilised source con
 `Wireframe User Sign Up:`  
 ![Wireframe - User Sign Up](/app/assets/images/wireframes/User-Sign-Up.png)
 
----
-<a name="relations"/></a>
-## Entity Relationships 
-
-### High-Level Components of the App
-```
-Explain the different high-level components (abstractions) in your App 
-
-it means talking about how your app is using inheritance to get the rails higher level components
-
-for instance your model files are inheriting from ApplicationRecord (Active Record)
-
-so you'd explain how by inheriting from active record you get heaps of extra methods. that then allow you to do CRUD actions on your db
-
-
-** one example of a higher level comp in my app is Active Record. 
-Active Record is a module with the base class inside of it that gives our models methods that allow us to manipulate data . Essentially Active Record can be called on our models to CRUD records. In the background it is executing SQL that does this record manipulation  ** 
-
-There is also: 
-Active Controller 
-Active View - erb, template/partial/layout differences 
-Active Storage - will also be a module that allows me to upload files in a simple manner 
-Talk about how active storage can connect to AWS S3 (or other services)
-
-TALK ABOUT 3 
-```
-
-
-### Model Relations Within the App  
-
-Below is the core models within my app and an explanation of the relationships they have with each other and why I chose to implement them in this manner. 
-
-Models:
-- User
-- Listing
-- Category
-- Subcategory
-- Unit of Measurement
-- Location 
-- Cart 
-- Cart_Listings
-
-**User : Listing**
-The user model has an active record association to Listing model due to the association that a 'User has_many listings' and a 'Listing belongs_to a User'. This association (or relationship) is implemented within the app by the user_id (User record primary key) being referenced in each and every Listing. This represents a one-to-many association. 
-
-**User : Cart**
-The user model also has a relationship with the cart model as a 'User has_many carts' and a 'Cart belongs_to a user'. The user_id (primary key) is referenced in the cart so that every cart will contain a user_id. This is a one-to-many relationship. 
-
-**User : Location**
-Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. I chose this relationship as I wanted to reflect that every location needed to be associated to a parent which is the User. This is to ensure no location records were stored in the database which were orphaned (without a user) to ensure data integrity by ensuring there are no redundnant records and also that there are no duplications. 
-
-Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the child table: location.)
-
-**Listing : Category / Subcategory / U.O.M.**
-Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing. 
-Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings). 
-I implemented these tables and their relationships because I wanted to set in stone the category options available for produce and not have users freehand their inputs while adding produce. 
-This ensures data integrity within the database as there is no data duplication or redundancy. For example, if I did not have the category options set and the 'listing belongs_to a category' relationship, users could create the attribute within category for vegetables in many different ways such as: Vegetables, veggies, vegetables, veg, Veggees, Vegetable etc 
-
-Creating the relationship also allows for searching listings using the attributes from the category/subcategory table attributes which is a key feature of the app.
-
-**Category : Subcategory**
-The Category model (which currently stores the main produce categories of Vegetables, Fruit or Herbs) is a parent of the subcategory model. 
-(The subcategory model currently stores types of produce within each of the subcategories such as Pumpkin(Vegetable), Apple(Fruit), Coriander(Herb) etc)
-
-Each subcategory belongs to a category through the 'Subcategory belongs_to a Category' and 'Category has_many Subcategories" as I wanted to reflect the dependency between the tables. Ie. the subcategory of 'Coriander' belongs to the category of 'Herbs'. 
-
-I have implemented this parent/child association in preparation, to allow for dynamic filtering within the app so that users can select the category of 'Herbs' and the app will dynamically filter the subcategory dropdown list to only show subcategories with the category of herb, which will narrow the users search. 
-(At this stage, the dynamic filtering is in the backlog for implementation in a subsequent release as it requires JavaScript event handling). 
-
-**Cart_Listings : Listings : Cart**
-The Cart model has an association to listings using a 'Has Many Through' association type (many-to-many).
-This relationship is implemented by a separate joining table Cart_Listings. The cart_listing model signifies an association to both listing and cart models as it belongs_to each. 
-
-A listing 'has_many cart_listings' and 'has_many carts' through cart_listings. This 'has_many through' relationship allows us to access data specific to the relation between the first and second models. It also represents that a listing can be in many different carts. 
-The cart model shows the relationship of 'has_many listings through cart_listings'. Which represents that a cart can have multiple listings added to it. 
-
 --- 
 <a name="erd"/></a>
-### 8. ERD 
+### 8. ERD & Schema Design
 
 `LocalVore ERD:`  
 ![LocalVore ERD](app/assets/images/MarketplaceERB.png)
@@ -454,37 +377,136 @@ Ref: "users"."id" < "carts"."user_id"
 Ref: "unit_of_measurement"."id" < "listings"."uom_id"
 ```
 
---- 
-<a name="methodology"/></a>
-## App Design Methodology:  
+---
+<a name="relations"/></a>
+## Entity Relationships & Database Design
 
-Normalisation through schema design
+### High-Level Components of the App
 
+**1. Active Record**
+My Rails app utilised the ActiveRecord Ruby gem which is a Ruby module that provides Object Relational Mapping to the app using inheriance. 
+Object Relational Mapping manages the movement of data between objects in the app and the database. It connects all objects to tables within the relational database.
+Active Record in Rails represents the 'M' for Model within the 'Model View Controller' pattern. 
 
-Data Integrity: sanitize and validate through permitted and required parameters 
-validations in the models for length or presence 
+ActiveRecord uses ORM to allow the app to create, read, update and destroy data in the database *without* having to write SQL statements directly. It also holds 'built-in' methods under the hood for the C.R.U.D. actions so that less code needs to be written overall. 
 
-Query efficiency through use of includes 
+These built-in ActiveRecord methods are inherited into each model (which is a database table) within the app which allows CRUD functionality within all tables which are generated. Other built-in methods include Validations which allows the app to validate data according to the stated parameters, before writing it into the database. 
 
-Lazy Loading aachieved through pagination: 
+This inheritance is represented by the below: 
+1. Application Record << Active Record
+  2. 'Custom-App-Models' << Application Record 
+Firstly, the Active Record module passes down it's inheritance to the Application Record. From there, the custom models within the app (Eg. Listing) inherits the Active Record functions *through* it's inheritance from the Application Record. 
 
-Eager loading 
+This inheritance is what allows the app to inherit traits within each model such as the has_many and belongs_to relationships between the various models. 
 
-Git branching 
+The Active Record module in Rails with it's built in methods and inheritance, is the reason Rails framework can assist developers to build and deploy full CRUD apps in such a short time-frame and with very little code needing to be written. 
 
-Postgresql DB 
+**2. Action Controller**
+Another high level component in the app is the Action Controller which is the overarching Controller for all controllers within the app. 
 
-Testing 
+The Action Controller represents the C for Controller in MVC pattern which is the middleman between the model and views. 
 
+The Action Controller holds the classes and methods for handling HTTP requests which come to the app from the client/browser. It receives and responds to requests from the Rails routes. 
+These methods instruct the controller to decide what to do with the HTTP requests it's receives (get, put, delete etc). It acts as the middleman to receive the request, then retrieve or insert data from a model then provides HTML output using a view. 
 
+All controllers which are in the app inherit the class characteristics from the Application Controller. (And prior to that, the Application Controller inherits from the Action Controller)
 
-Functionality enhanced through use of third party services (refer to listing below for details)
---- 
+This inheritance is represented by the below: 
+1. Application Controller << Action Controller
+  2. 'Custom-App-Controller' << Application Controller 
+
+As the Application Controller is the parent of any controllers I created within the app, this is where I have defined authentication methods and set parameters as the HTTP request is first filtered through the Application Controller. 
+
+**3. Action View**
+The Action View in Rails represents the V for View within MVC framework. 
+
+The Action View is a framework to handle looking up and rendering of templates, partial templates and layouts. 
+ 
+The Action View contains helper methods which are the Rails magic which handles typical behavious such as Forms. I extensively used the FormHelper methods to create forms and inherited these helper methods very easily through the use of 'form_for' within a HTML form. 
+
+There are three components in Action View which make up the HTML output of the app: 
+1. Templates 
+  ERB templates are the view templates in Rails which are written with a combination of embedded Ruby code and HTML code. Ruby is embedded (AKA ERB) within templates inside <% %> & <%= %> tags which allowed me to customise views using Ruby code. Templates in Rails end with '.html.erb'
+2. Partial Templates (AKA Partials)
+  Partials are used to break up code into smaller chunks which are re-used across a number of templates. I used Partials for the navigation bar and also side bar in my app. As this HTML code appeared on several templates in my app I used partials to keep the code dry. 
+3. Layouts
+  Layouts are used in Rails to hold the common templates which are present globally within the app. Some apps will have the navigation bar as a layout if they wish for it to appear on every single page. 
+
+**4. Active Storage** 
+Active Storage is another high level component in my app, it is a built-in Ruby gem which handles file upload & retrieval in the production environment from cloud storage services such as Google or Amazon. 
+
+I utilised Active Storage in the app for the user's profile photos and also listing photo attachments. I chose the image hosting service of AWS S3 which provides secure and scalable storage for files uploaded in my app. The app is configured to work with AWS S3 buckets due to the configuration parameters and through the access key credentials I provided the app from AWS. 
+
+Active Storage uses two tables within my database (blobs and attachments) to handle the files. 
+Active_storage_attachments is a polymorphic joining table which stores the corresponding model id along with the record id.
+This polymorphic table connects the model with the attachment based on the relationship defined in the model file for example, in my listing model it states 'listing has_one_attached :photo' so the polymorphic joining table will link the photo with the instance of that model which is a listing. The photo is represented in the polymorphic table as a 'blob'.
+
+The second table, active_storage_blobs stores the uploaded file's information (filename, size etc). This is the table which represents the attachments ie. a user's profile photo wouls be one blob or record within this able. 
+
+### Model Relations Within the App  
+
+Below is a list of the core models within my app and an explanation of the relationships they have with each other and why I chose to implement them in this manner. 
+
+Models:
+- User
+- Listing
+- Category
+- Subcategory
+- Unit of Measurement
+- Location 
+- Cart 
+- Cart_Listings
+
+**User : Listing**
+The user model has an active record association to Listing model due to the association that a 'User has_many listings' and a 'Listing belongs_to a User'. This association (or relationship) is implemented within the app by the user_id (User record primary key) being referenced in each and every Listing. This represents a one-to-many association. 
+
+**User : Cart**
+The user model also has a relationship with the cart model as a 'User has_many carts' and a 'Cart belongs_to a user'. The user_id (primary key) is referenced in the cart so that every cart will contain a user_id. This is a one-to-many relationship. 
+
+**User : Location**
+Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. I chose this relationship as I wanted to reflect that every location needed to be associated to a parent which is the User. This is to ensure no location records were stored in the database which were orphaned (without a user) to ensure data integrity by ensuring there are no redundnant records and also that there are no duplications. 
+
+Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the child table: location.)
+
+**Listing : Category / Subcategory / U.O.M.**
+Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing. 
+Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings). 
+I implemented these tables and their relationships because I wanted to set in stone the category options available for produce and not have users freehand their inputs while adding produce. 
+This ensures data integrity within the database as there is no data duplication or redundancy. For example, if I did not have the category options set and the 'listing belongs_to a category' relationship, users could create the attribute within category for vegetables in many different ways such as: "Vegetables, veggies, vegetables, veg, Veggees, Vegetable" etc
+
+Creating the relationship also allows for searching listings using the attributes from the category/subcategory table attributes which is a key feature of the app.
+
+**Category : Subcategory**
+The Category model (which currently stores the main produce categories of Vegetables, Fruit or Herbs) is a parent of the subcategory model. 
+(The subcategory model currently stores types of produce within each of the subcategories such as Pumpkin(Vegetable), Apple(Fruit), Coriander(Herb) etc)
+
+Each subcategory belongs to a category through the 'Subcategory belongs_to a Category' and 'Category has_many Subcategories" as I wanted to reflect the dependency between the tables. Ie. the subcategory of 'Coriander' belongs to the category of 'Herbs'. 
+
+I have implemented this parent/child association in preparation, to allow for dynamic filtering within the app so that users can select the category of 'Herbs' and the app will dynamically filter the subcategory dropdown list to only show subcategories with the category of herb, which will narrow the users search. 
+(At this stage, the dynamic filtering is in the backlog for implementation in a subsequent release as it requires JavaScript event handling). 
+
+**Cart_Listings : Listings : Cart**
+The Cart model has an association to listings using a 'Has Many Through' association type (many-to-many).
+This relationship is implemented by a separate joining table Cart_Listings. The cart_listing model signifies an association to both listing and cart models as it belongs_to each. 
+
+A listing 'has_many cart_listings' and 'has_many carts' through cart_listings. This 'has_many through' relationship allows us to access data specific to the relation between the first and second models. It also represents that a listing can be in many different carts. 
+The cart model shows the relationship of 'has_many listings through cart_listings'. Which represents that a cart can have multiple listings added to it. 
+
+**Summary**
+In summary, I chose to design the database with the above tables and their relations in order to achieve database normalization. 
+
+I wanted to:
+- eliminate redundant data 
+- reduce complexity of the data 
+- create relationship between the tables & data within the tables so I could access attributes through these relationships 
+- to setup a logical storage structure for the data 
 
 --- 
 <a name="thirdparty"/></a>
 <a name="thirdpartydetails"/></a>
 ## Third Party Services
+
+Functionality has been enhanced through use of third party services (refer to listing below for details)
 
 | Third Party Service  | Purpose & Function                                        | 
 | -------------------- | :----------------------------------------- | 
@@ -508,5 +530,4 @@ Functionality enhanced through use of third party services (refer to listing bel
 THE END 🌱 Thank you! 
 ```
 ---
-
 </div>
