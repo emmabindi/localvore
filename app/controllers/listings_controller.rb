@@ -4,8 +4,8 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    # Search queries are redirected to the index of listings and displays only listings which meet criteria of the search query. 
-    # The '.includes' allows search to be performed upon related objects and loads each listings category/subcategory/uom & user 
+    # Search queries are redirected to the index of listings and displays only listings which meet criteria of the search query.
+    # The '.includes' allows search to be performed upon related objects and loads each listings category/subcategory/uom & user
     # The index of listings is limited to show a maximum per page as per parameters in listing model
     @listings = @q.result.includes(:category, :subcategory, :uom, :user).with_attached_photo.page params[:page]
   end
@@ -40,13 +40,14 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
-  private 
+  private
+
   # Sets list of parameters that are allowed for listings
   def listing_params
     params.require(:listing).permit(:title, :photo, :price, :qty, :description, :uom_id, :category_id, :subcategory_id)
   end
 
-  # Gets the listing using the listing_id and stores in a variable 
+  # Gets the listing using the listing_id and stores in a variable
   def find_listing
     @listing = Listing.find(params[:id])
   end

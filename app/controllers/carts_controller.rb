@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   def index
     if user_signed_in? && current_user.carts.last
       @cart = current_user.carts.last.listings
-      @listing_ids = @cart.map do | listing |
+      @listing_ids = @cart.map do |listing|
         listing.id
       end
     else
@@ -14,7 +14,7 @@ class CartsController < ApplicationController
   def create
     if current_user.carts.empty?
       cart = Cart.create(completed: false, user_id: current_user.id)
-    else 
+    else
       cart = current_user.carts.last
     end
     listing = Listing.find(params[:listing_id])
@@ -22,10 +22,11 @@ class CartsController < ApplicationController
     redirect_to listings_path
   end
 
-  private 
-  # Calculate total price of all produce within the cart 
+  private
+
+  # Calculate total price of all produce within the cart
   def cart_total
-    sum = 0 
+    sum = 0
     @cart.each do |cart_item|
       sum += cart_item.price
     end

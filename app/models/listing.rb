@@ -1,4 +1,4 @@
-# The base product of this marketplace, can be created and purchased by all users 
+# The base product of this marketplace, can be created and purchased by all users
 class Listing < ApplicationRecord
   # Input field validations:
   validates :title, presence: true
@@ -11,7 +11,7 @@ class Listing < ApplicationRecord
   belongs_to :category
   belongs_to :subcategory
   belongs_to :uom
-  has_many :cart_listings 
+  has_many :cart_listings
   has_many :carts, through: :cart_listings
 
   # Listing img validation:

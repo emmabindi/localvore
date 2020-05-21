@@ -18,4 +18,3 @@ class Location < ApplicationRecord
     [street_address, suburb, state, country].compact.join(', ')
   end
 end
-

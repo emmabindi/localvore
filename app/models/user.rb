@@ -7,19 +7,19 @@ class User < ApplicationRecord
   # Establishes relationship between a user and listing table:
   has_many :listings
 
-  #validate names are not blank or exceed a maximum length 
+  # validate names are not blank or exceed a maximum length
   validates :first_name, presence: true
   validates_length_of :first_name, within: 1..30, too_long: "Please ensure first name is less than 30 characters long"
   validates :surname, presence: true
   validates_length_of :surname, within: 1..30, too_long: "Please ensure surname is less than 30 characters long"
 
-  #validate email is not blank or taken by another user 
+  # validate email is not blank or taken by another user
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 
   # validates bio is not too long
   validates :bio, length: { maximum: 450, too_long: "Please ensure biography is less than 250 characters long" }
 
-  # Uses active record to attach image file to user 
+  # Uses active record to attach image file to user
   has_one_attached :profile_photo
 
   # Allows user to have one location (which consists of the address attributes and ensures that is removed from database if the user is removed so it does not leave an orphaned record)
