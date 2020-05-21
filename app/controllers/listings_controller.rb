@@ -4,9 +4,13 @@ class ListingsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    # Search queries are redirected to the index of listings and displays only listings which meet criteria of the search query.
-    # The '.includes' allows search to be performed upon related objects and loads each listings category/subcategory/uom & user
-    # The index of listings is limited to show a maximum per page as per parameters in listing model
+    # Search queries are redirected to the index of listings
+    # and displays only listings which meet criteria of the search query.
+
+    # The '.includes' allows search to be performed upon
+    # related objects and loads each listings category/subcategory/uom & user
+    # The index of listings is limited to show a maximum
+    # per page as per parameters in listing model
     @listings = @q.result.includes(:category, :subcategory, :uom, :user).with_attached_photo.page params[:page]
   end
 
@@ -22,7 +26,7 @@ class ListingsController < ApplicationController
     if @listing.errors.any?
       render :new
     else
-      flash[:success] = "You successfully added a new listing 🌱"
+      flash[:success] = 'You successfully added a new listing 🌱'
       redirect_to @listing
     end
   end

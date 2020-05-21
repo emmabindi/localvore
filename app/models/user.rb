@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # Include default devise modules. Others available # are: :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -22,12 +21,17 @@ class User < ApplicationRecord
   # Uses active record to attach image file to user
   has_one_attached :profile_photo
 
-  # Allows user to have one location (which consists of the address attributes and ensures that is removed from database if the user is removed so it does not leave an orphaned record)
-  # The attribute nesting allows the use of the attributes within location table to be used by the user (for example entering address in the sign up form)
+  # Allows user to have one location (which consists # of the address attributes and ensures that is
+  # removed from database if the user is removed so
+  # it does not leave an orphaned record)
+  # The attribute nesting allows the use of the attributes
+  # within location table to be used by the user
+  # (for example entering address in the sign up form)
   has_one :location, dependent: :destroy
   accepts_nested_attributes_for :location, update_only: :true
 
-  # Allows user to make multiple transactions and creates new empty cart after each transaction
+  # Allows user to make multiple transactions and creates
+  # new empty cart after each transaction
   has_many :carts
 
   # Set the search options for drop down selections in forms:

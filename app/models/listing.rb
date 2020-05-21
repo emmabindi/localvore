@@ -1,4 +1,5 @@
-# The base product of this marketplace, can be created and purchased by all users
+# The base product of this marketplace, can be
+# created and purchased by all users
 class Listing < ApplicationRecord
   # Input field validations:
   validates :title, presence: true
@@ -17,11 +18,13 @@ class Listing < ApplicationRecord
   # Listing img validation:
   has_one_attached :photo
 
-  # Set default image to display if no photo is uploaded as per _image-logic partial:
+  # Set default image to display if no photo is uploaded
+  # as per _image-logic partial:
   def default_image
     photo.attached? ? photo : 'fresh.png'
   end
 
-  # Configuration for pagination to ensure maximum of 8 listing appear per index page:
+  # Configuration for pagination to ensure maximum of
+  # 8 listing appear per index page:
   self.per_page = 8
 end
