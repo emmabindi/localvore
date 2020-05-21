@@ -81,7 +81,7 @@ This platform allows growers to establish a profitable ecosystem for their garde
 | ☑️ Connects people with nature, seasons and the story of their food  
 | ☑️ Reduced ecological footprint with lower emissions 'food miles'   
 | ☑️ Secure third party payment system with low transaction fees (Stripe fees < 3%)  
-|
+
 
 ### **Market Analysis:** 
 
@@ -208,7 +208,7 @@ As growers (fit any of the below criteria)
 *(Establishing persona's during planning phase enabled me to step into the shoes of the prospective users of the app and consider their lifestyle, values and needs in order to better develop the app)*
 
 Persona 1: Buyer called 'Jed'
-Aged 28, Jed wants to use a simple app to locate a seller & find the produce he is looking for in less than 5 minutes so thhey can purchase organic homegrown produce within bike ride distance of his house rather than giving $ to big supermarkets. Jed is studying a PhD and also works part-time so has very limited time in his schedule to maintain a garden and grow his own produce. Jed also lives in a 2x1 apartment and has just 3sqm of balcony space. 
+Aged 28, Jed wants to use a simple app to locate a seller & find the produce he is looking for in less than 5 minutes so he can purchase organic homegrown produce within bike ride distance of his house rather than giving $ to big supermarkets. Jed is studying a PhD and also works part-time so has very limited time in his schedule to maintain a garden and grow his own produce. Jed also lives in a 2x1 apartment and has just 3sqm of balcony space. 
 
 Persona 2: Seller called 'Jan'
 Aged 45, Jan lives on the same street as Jed, but has a larger backyard space and uses it to grow produce. However the bounty from her garden is greater than her household needs. 
@@ -291,8 +291,9 @@ With each new feature implemented, I carried out testing and utilised source con
 ### 8. ERD & Schema Design
 
 `LocalVore ERD:`  
-![LocalVore ERD](app/assets/images/MarketplaceERB.png)
-
+![LocalVore ERD](app/assets/images/MarketplaceERD.png)
+  
+`Table Relations:` 
 ```
 Project Marketplace {
   Table users {
@@ -381,9 +382,9 @@ Ref: "unit_of_measurement"."id" < "listings"."uom_id"
 <a name="relations"/></a>
 ## Entity Relationships & Database Design
 
-### High-Level Components of the App
+### **High-Level Components of the App**
 
-**1. Active Record**
+**1. Active Record**  
 My Rails app utilised the ActiveRecord Ruby gem which is a Ruby module that provides Object Relational Mapping to the app using inheriance. 
 Object Relational Mapping manages the movement of data between objects in the app and the database. It connects all objects to tables within the relational database.
 Active Record in Rails represents the 'M' for Model within the 'Model View Controller' pattern. 
@@ -393,15 +394,16 @@ ActiveRecord uses ORM to allow the app to create, read, update and destroy data 
 These built-in ActiveRecord methods are inherited into each model (which is a database table) within the app which allows CRUD functionality within all tables which are generated. Other built-in methods include Validations which allows the app to validate data according to the stated parameters, before writing it into the database. 
 
 This inheritance is represented by the below: 
-1. Application Record << Active Record
-  2. 'Custom-App-Models' << Application Record 
+1. Application Record << Active Record  
+    2. 'Custom-App-Models' << Application Record   
+
 Firstly, the Active Record module passes down it's inheritance to the Application Record. From there, the custom models within the app (Eg. Listing) inherits the Active Record functions *through* it's inheritance from the Application Record. 
 
 This inheritance is what allows the app to inherit traits within each model such as the has_many and belongs_to relationships between the various models. 
 
 The Active Record module in Rails with it's built in methods and inheritance, is the reason Rails framework can assist developers to build and deploy full CRUD apps in such a short time-frame and with very little code needing to be written. 
 
-**2. Action Controller**
+**2. Action Controller**  
 Another high level component in the app is the Action Controller which is the overarching Controller for all controllers within the app. 
 
 The Action Controller represents the C for Controller in MVC pattern which is the middleman between the model and views. 
@@ -412,12 +414,12 @@ These methods instruct the controller to decide what to do with the HTTP request
 All controllers which are in the app inherit the class characteristics from the Application Controller. (And prior to that, the Application Controller inherits from the Action Controller)
 
 This inheritance is represented by the below: 
-1. Application Controller << Action Controller
-  2. 'Custom-App-Controller' << Application Controller 
+1. Application Controller << Action Controller   
+    2. 'Custom-App-Controller' << Application Controller   
 
 As the Application Controller is the parent of any controllers I created within the app, this is where I have defined authentication methods and set parameters as the HTTP request is first filtered through the Application Controller. 
 
-**3. Action View**
+**3. Action View**  
 The Action View in Rails represents the V for View within MVC framework. 
 
 The Action View is a framework to handle looking up and rendering of templates, partial templates and layouts. 
@@ -432,18 +434,18 @@ There are three components in Action View which make up the HTML output of the a
 3. Layouts
   Layouts are used in Rails to hold the common templates which are present globally within the app. Some apps will have the navigation bar as a layout if they wish for it to appear on every single page. 
 
-**4. Active Storage** 
+**4. Active Storage**   
 Active Storage is another high level component in my app, it is a built-in Ruby gem which handles file upload & retrieval in the production environment from cloud storage services such as Google or Amazon. 
 
 I utilised Active Storage in the app for the user's profile photos and also listing photo attachments. I chose the image hosting service of AWS S3 which provides secure and scalable storage for files uploaded in my app. The app is configured to work with AWS S3 buckets due to the configuration parameters and through the access key credentials I provided the app from AWS. 
 
 Active Storage uses two tables within my database (blobs and attachments) to handle the files. 
-Active_storage_attachments is a polymorphic joining table which stores the corresponding model id along with the record id.
+Active_storage_attachments is a polymorphic joining table which stores the corresponding model id along with the record id.    
 This polymorphic table connects the model with the attachment based on the relationship defined in the model file for example, in my listing model it states 'listing has_one_attached :photo' so the polymorphic joining table will link the photo with the instance of that model which is a listing. The photo is represented in the polymorphic table as a 'blob'.
 
 The second table, active_storage_blobs stores the uploaded file's information (filename, size etc). This is the table which represents the attachments ie. a user's profile photo wouls be one blob or record within this able. 
 
-### Model Relations Within the App  
+### **Model Relations Within the App**  
 
 Below is a list of the core models within my app and an explanation of the relationships they have with each other and why I chose to implement them in this manner. 
 
@@ -457,26 +459,26 @@ Models:
 - Cart 
 - Cart_Listings
 
-**User : Listing**
+**User : Listing**  
 The user model has an active record association to Listing model due to the association that a 'User has_many listings' and a 'Listing belongs_to a User'. This association (or relationship) is implemented within the app by the user_id (User record primary key) being referenced in each and every Listing. This represents a one-to-many association. 
 
-**User : Cart**
+**User : Cart**  
 The user model also has a relationship with the cart model as a 'User has_many carts' and a 'Cart belongs_to a user'. The user_id (primary key) is referenced in the cart so that every cart will contain a user_id. This is a one-to-many relationship. 
 
-**User : Location**
+**User : Location**  
 Another active record association which the user model has is the one-to-one association of 'User has_one location' and 'Location belongs_to a User'. This relationship shows that each location has a user_id (PK) referenced in it. I chose this relationship as I wanted to reflect that every location needed to be associated to a parent which is the User. This is to ensure no location records were stored in the database which were orphaned (without a user) to ensure data integrity by ensuring there are no redundnant records and also that there are no duplications. 
 
 Within the app, I have also utilised the Active Record Method of accepts_nested_attributes_for location within the user model. This allows the location attributes (address details) to be saved through the parent (the user). In the app, this is demostrated by a new location object being created within the creation of a new user (Eg. New member registration form which accepts user attributes including their address which is actually attributes from the child table: location.)
 
-**Listing : Category / Subcategory / U.O.M.**
-Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing. 
-Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings). 
-I implemented these tables and their relationships because I wanted to set in stone the category options available for produce and not have users freehand their inputs while adding produce. 
-This ensures data integrity within the database as there is no data duplication or redundancy. For example, if I did not have the category options set and the 'listing belongs_to a category' relationship, users could create the attribute within category for vegetables in many different ways such as: "Vegetables, veggies, vegetables, veg, Veggees, Vegetable" etc
+**Listing : Category / Subcategory / U.O.M.**  
+Listing model has an identical active record association to category/subcategory and unit-of-measurement models. This is because a listing belongs_to a category (and to a subcategory and to a uom). The relationship is represented through the primary key of the category (category_id) being referenced within the listing.   
+Each listing can have only one category however a category can be in many different listings (represented through the category has_many listings).   
+I implemented these tables and their relationships because I wanted to set in stone the category options available for produce and not have users freehand their inputs while adding produce.   
+This ensures data integrity within the database as there is no data duplication or redundancy. For example, if I did not have the category options set and the 'listing belongs_to a category' relationship, users could create the attribute within category for vegetables in many different ways such as: "Vegetables, veggies, vegetables, veg, Veggees, Vegetable" etc  
 
 Creating the relationship also allows for searching listings using the attributes from the category/subcategory table attributes which is a key feature of the app.
 
-**Category : Subcategory**
+**Category : Subcategory**  
 The Category model (which currently stores the main produce categories of Vegetables, Fruit or Herbs) is a parent of the subcategory model. 
 (The subcategory model currently stores types of produce within each of the subcategories such as Pumpkin(Vegetable), Apple(Fruit), Coriander(Herb) etc)
 
@@ -485,14 +487,14 @@ Each subcategory belongs to a category through the 'Subcategory belongs_to a Cat
 I have implemented this parent/child association in preparation, to allow for dynamic filtering within the app so that users can select the category of 'Herbs' and the app will dynamically filter the subcategory dropdown list to only show subcategories with the category of herb, which will narrow the users search. 
 (At this stage, the dynamic filtering is in the backlog for implementation in a subsequent release as it requires JavaScript event handling). 
 
-**Cart_Listings : Listings : Cart**
+**Cart_Listings : Listings : Cart**  
 The Cart model has an association to listings using a 'Has Many Through' association type (many-to-many).
 This relationship is implemented by a separate joining table Cart_Listings. The cart_listing model signifies an association to both listing and cart models as it belongs_to each. 
 
 A listing 'has_many cart_listings' and 'has_many carts' through cart_listings. This 'has_many through' relationship allows us to access data specific to the relation between the first and second models. It also represents that a listing can be in many different carts. 
 The cart model shows the relationship of 'has_many listings through cart_listings'. Which represents that a cart can have multiple listings added to it. 
 
-**Summary**
+**Summary**  
 In summary, I chose to design the database with the above tables and their relations in order to achieve database normalization. 
 
 I wanted to:
@@ -524,7 +526,8 @@ Functionality has been enhanced through use of third party services (refer to li
 | **Geocoder** | Gem which converts a given address into longitude and langitude co-ordinates and records this against each location. These co-ordinates can then feed into maps to mark locations 
 | **GoogleMaps API** | This is the API which Geocoder receives it's geocoding data from and allows Gemcoder to execute the conversion from address to co-ordinates on the fly 
 | **MapBox API** | An open source mapping platform to allow map integration within the app (which is displayed through JavaScript)    
-| **Leaflet** | Javascript client side library for displaying maps, used to provide a map view of grower locations so buyers can locate produce in a visual way  
+| **Leaflet** | Javascript client side library for displaying maps, used to provide a map view of grower locations so buyers can locate produce in a visual way 
+| **RuboCop - Rails** | Ruby gem used to lint codebase and enforce Rails best practises and coding conventions. 
 
 ``` 
 THE END 🌱 Thank you! 
