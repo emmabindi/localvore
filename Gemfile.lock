@@ -99,7 +99,7 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     leaflet-rails (1.6.0)
       rails (>= 4.2.0)
     listen (3.2.1)
@@ -283,7 +283,6 @@ DEPENDENCIES
   rails_12factor
   ransack
   rspec-rails
-  rubocop
   rubocop-rails
   sanitize
   sass-rails (>= 6)
